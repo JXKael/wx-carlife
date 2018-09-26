@@ -1,0 +1,101 @@
+/**index.wxss**/
+page{background: #f7f7f7;}
+.box{
+  background: #fff;
+  padding-bottom: 30rpx;
+  margin-bottom: 20rpx;
+}
+.head-img{
+  width: 100%;
+  height: 354rpx;
+  overflow: hidden;
+}
+.head-img image{
+  width: 100%;
+}
+.content{
+  padding: 20rpx 40rpx 20rpx 40rpx;
+  box-sizing: border-box;
+}
+.title-h1{
+  font-size: 36rpx;
+  color: #333;
+  display: block;
+  font-weight: bold;
+}
+.h2{
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-top: 10rpx;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.content-act-list{
+  margin-top: 60rpx;
+  overflow: hidden;
+}
+.content-act-list image{
+  display: block;
+  float: left;
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 35rpx;
+  margin-bottom: 20rpx;
+}
+.content-act-list image:nth-child(3n){
+margin-right: 0;
+}
+.content-info-num{
+  overflow: hidden;
+}
+.content-info-num view{
+  width: 33%;
+  height: 120rpx;
+  float: left;
+}
+.content-info-num view:nth-child(2){
+  width: 34%;
+  position: relative;
+}
+.content-info-num view:nth-child(2)::after{
+  content:"";
+  position: absolute;
+  top: 35rpx;
+  left: 0;
+  width: 2rpx;
+  height: 50rpx;
+  background: #CCCCCC;
+  display: block;
+}
+.content-info-num view:nth-child(2)::before{
+  content:"";
+  position: absolute;
+  top: 35rpx;
+  right: 0;
+  width: 2rpx;
+  height: 50rpx;
+  background: #CCCCCC;
+  display: block;
+}
+.content-info-num view text{
+  display: block;
+  text-align: center;
+}
+.content-info-num view text:nth-child(1){
+  font-size: 32rpx;
+  margin-top: 18rpx;
+}
+.content-info-num view text:nth-child(2){
+  font-size: 28rpx;
+}
+.btn{
+  width: 270rpx;
+  background: #474F64;
+  color: #fff;
+  border-radius: 92rpx;
+  margin-top: 20rpx;
+  border: none;
+  font-size: 36rpx;
+}

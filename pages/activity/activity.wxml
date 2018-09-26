@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class='box'>
+  <view class='head-img'>
+    <image src='../../image/1.png' mode="widthFix"></image>
+  </view>
+  <view class='content'>
+    <text class='title-h1'>“归家”摄影大赛 赢iPhone X大奖</text>
+    <text class='h2'>“归”家路，“照”我心。用照片讲述那些回家的故事上行下效惺惺相惜</text>
+    <view class='content-act-list'>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+    </view>
+    <view class='content-info-num'>
+      <view>
+        <text>人气</text>
+        <text>0</text>
+      </view>
+      <view>
+        <text>作品</text>
+        <text>0</text>
+      </view>
+      <view>
+        <text>评论</text>
+        <text>0</text>
+      </view>
+    </view>
+    <button class='btn'>参与活动</button>
+  </view>
+</view>
+<view class='box'>
+  <view class='head-img'>
+    <image src='../../image/1.png' mode="widthFix"></image>
+  </view>
+  <view class='content'>
+    <text class='title-h1'>“归家”摄影大赛 赢iPhone X大奖</text>
+    <text class='h2'>“归”家路，“照”我心。用照片讲述那些回家的故事上行下效惺惺相惜</text>
+    <view class='content-act-list'>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <image src='../../image/1.png' mode="widthFix"></image>
+    </view>
+    <view class='content-info-num'>
+      <view>
+        <text>人气</text>
+        <text>0</text>
+      </view>
+      <view>
+        <text>作品</text>
+        <text>0</text>
+      </view>
+      <view>
+        <text>评论</text>
+        <text>0</text>
+      </view>
+    </view>
+    <button class='btn'>参与活动</button>
+  </view>
+</view>

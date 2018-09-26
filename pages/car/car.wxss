@@ -1,0 +1,5 @@
+/**index.wxss**/
+page{background: #f7f7f7;}
+.container view{width: 100%;height: 100rpx;line-height: 100rpx;color: #323232;font-size: 32rpx;border-bottom: 1rpx solid #e7e7e7;position: relative;background: #fff;padding-left: 20rpx;box-sizing: border-box}
+.container view:last-child{border: none;}
+.container image{position: absolute; right: 40rpx;top: 36rpx; width: 28rpx;height: 28rpx;}

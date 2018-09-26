@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class='box' style='margin-top:20rpx;'>
+  <text>头像</text>
+  <image class='portrait-img'></image>
+</view>
+<view class='box'>
+  <text>昵称</text>
+  <input type='text' placeholder='' placeholder-style="color:#CCCCCC;" value='丽丽'/>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>真实姓名</text>
+  <input type='text' placeholder='' placeholder-style="color:#CCCCCC;" value='阿里'/>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>真实姓名</text>
+  <input type='text' placeholder='' placeholder-style="color:#CCCCCC;" value='签名'/>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>生日</text>
+   <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-01-01" bindchange="bindDateChange">  
+    <input type="text" name='animaltype' disabled='true' placeholder="未添加" value='{{dates}}' placeholder-style="color:#CCCCCC;"/>
+  </picker> 
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>性别</text>
+  <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
+      <input type="text" name='animaltype' disabled='true' placeholder="未添加" value='{{typeArrayTxt}}' placeholder-style="color:#CCCCCC;"/>
+  </picker>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='title-h1'>
+兴趣爱好
+</view>
+<view class='hobby'>
+  <view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='box'>
+  <text>职业类别</text>
+  <input type='text' placeholder='' placeholder-style="color:#CCCCCC;" value='it'/>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>微博链接</text>
+  <input type='text' placeholder='' placeholder-style="color:#CCCCCC;" value='www.aaa.com'/>
+  <image class='jt-img' src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+
+<button class='btn'>提交</button>

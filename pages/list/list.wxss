@@ -1,0 +1,94 @@
+/**index.wxss**/
+page{background: #f7f7f7;}
+.wrap{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.head{
+  width: 100%;
+  height: 446rpx; 
+  background: #333;
+}
+.head .works-num{
+  font-size: 28rpx;
+  color: #fff;
+  display: inline-block;
+  margin-top: 90rpx;
+  margin-left: 90rpx;
+}
+.head .works-num text{
+  display: block;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+}
+.title text{
+  color: #fff;
+  display: block;
+  margin-left: 40rpx;
+}
+.title text:nth-child(1){
+  font-size: 60rpx;
+  margin-top: 60rpx;
+}
+.title text:nth-child(2){
+  font-size: 28rpx;
+}
+
+.active-user{
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx 30rpx 30rpx;
+}
+.active-user-h1{
+  height: 120rpx;
+  border-bottom: 2rpx solid #eee;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.active-user-h1 text{
+  height: 120rpx;
+  display: block;  
+  font-size: 36rpx;
+  line-height: 160rpx;
+}
+.active-user-h1 button{
+  width: 240rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background: #474F64;
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+}
+.active-user-tx{
+  overflow: hidden;
+}
+.active-user-tx view{
+  background: #333;
+  width: 160rpx;
+  float: left;
+  height: 160rpx;
+  margin-right: 74rpx;
+  margin-bottom: 20rpx;
+}
+.active-user-tx view:nth-child(3n){
+  margin-right: 0;
+}
+.content-list{
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.content-list-b{
+  width: 310rpx;
+  margin-right: 70rpx;
+}
+.content-list-b:nth-child(2n){
+  margin-right: 0;
+}

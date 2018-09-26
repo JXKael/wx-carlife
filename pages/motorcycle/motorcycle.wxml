@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap='wzList'>
+    摩界映像
+    <image src='../../image/right-btn.png'></image>
+  </view>
+  <view bindtap='wzList'>
+    骑行生活
+    <image src='../../image/right-btn.png'></image>
+  </view>
+  <view bindtap='wzList'>
+    摩旅天下
+    <image src='../../image/right-btn.png'></image>
+  </view>
+</view>

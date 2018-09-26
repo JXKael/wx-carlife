@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/homePage/homePage",
+    "pages/worksDetails/worksDetails",
+    "pages/my/my",
+    "pages/list/list",
+    "pages/activity/activity",
+    "pages/userinfo/userinfo",
+    "pages/release/release",
+    "pages/car/car",
+    "pages/motorcycle/motorcycle"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "车摄汇",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#A2A2A2",
+    "selectedColor": "#85B844",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/homePage/homePage",
+        "iconPath": "image/icon-shouye.png",
+        "selectedIconPath": "image/icon-shouye-h.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "iconPath": "image/icon-car.png",
+        "selectedIconPath": "image/icon-car-h.png",
+        "text": "汽车"
+      },
+      {
+        "pagePath": "pages/motorcycle/motorcycle",
+        "iconPath": "image/icon-motuo.png",
+        "selectedIconPath": "image/icon-motuo-h.png",
+        "text": "摩托车"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "iconPath": "image/icon-huodong.png",
+        "selectedIconPath": "image/icon-huodong-h.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/icon-wode.png",
+        "selectedIconPath": "image/icon-wode-h.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

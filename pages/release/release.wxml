@@ -1,0 +1,117 @@
+<!--index.wxml-->
+<view class='box'>
+  <text>作品标题</text>
+  <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>请选择主栏目</text>
+  <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
+      <input type="text" name='animaltype' disabled='true' placeholder="未添加" value='{{typeArrayTxt}}' placeholder-style="color:#CCCCCC;"/>
+  </picker>
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>请选择子栏目</text>
+  <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
+      <input type="text" name='animaltype' disabled='true' placeholder="未添加" value='{{typeArrayTxt}}' placeholder-style="color:#CCCCCC;"/>
+  </picker>
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='title-h1'>
+作品介绍
+</view>
+<view class="section">
+  <textarea placeholder="请输入作品介绍" placeholder-style="color:#CCCCCC;"  />
+</view>
+<view class='title-h1'>
+作品正文
+</view>
+<view class='title-h1'>
+点击按钮，添加相应的元素模块
+</view>
+<view class='module'>
+  <text bindtap="insert" data-id='0'>添加文字</text>
+  <text bindtap="insert" data-id='1'>上传照片</text>
+  <text bindtap="insert" data-id='2'>添加标注</text>
+  <text bindtap="insert" data-id='3'>添加视频</text>
+</view>
+<view class='content'>
+  <block wx:for="{{content}}" wx:for-item="item">
+    <block wx:if="{{item.type == 0}}">
+      <view class='box'>
+        <text>添加文字</text>
+        <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+        <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+      </view>
+    </block>
+    <block wx:if="{{item.type == 1}}">
+      <view class='title-h1'>
+      上传照片
+      </view>
+      <view class='cover'>
+        <text>点击上传照片</text>
+      </view>
+    </block>
+    <block wx:if="{{item.type == 2}}">
+      <view class='box'>
+        <text>添加标注</text>
+        <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+        <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+      </view>
+    </block>
+    <block wx:if="{{item.type == 3}}">
+      <view class='box'>
+        <text>视频网址</text>
+        <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+        <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+      </view>
+    </block>
+  </block>
+</view>
+<view class='title-h1'>
+上传封面
+</view>
+<view class='cover'>
+  <text>点击上传封面</text>
+</view>
+<view class='box'>
+  <text>拍摄地点</text>
+  <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>拍摄时间</text>
+  <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-01-01" bindchange="bindDateChange">  
+    <input type="text" name='animaltype' disabled='true' placeholder="未添加" value='{{dates}}' placeholder-style="color:#CCCCCC;"/>
+  </picker> 
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='box'>
+  <text>拍摄装备</text>
+  <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>
+  <image src='../../image/icon-tiaozhuan.png' mode="widthFix"></image>
+</view>
+<view class='title-h1'>
+添加水印
+</view>
+<view class='box1'>
+  <text>在正文图片上添加水印</text>
+ <checkbox-group class='checkbox' bindchange="checkboxChange">
+    <label>
+      <checkbox />
+    </label>
+  </checkbox-group>
+</view>
+<view class='title-h1'>
+作品授权
+</view>
+<view class='box1'>
+  <text>禁止匿名转载，禁止商用使用任何图片和文字，禁止个人使用</text>
+ <checkbox-group class='checkbox' bindchange="checkboxChange">
+    <label>
+      <checkbox />
+    </label>
+  </checkbox-group>
+</view>
+

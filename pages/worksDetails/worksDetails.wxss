@@ -1,0 +1,69 @@
+/**index.wxss**/
+/* page{background: #f7f7f7;} */
+.wrap{
+  padding: 60rpx 30rpx;
+}
+.title{
+  font-size: 46rpx;
+  font-weight: bold;
+  margin-bottom: 50rpx;
+}
+.head{
+  width: 100%;
+  overflow: hidden;
+}
+.head text{
+  display: inline-block;
+  float: left;
+  font-size: 28rpx;
+}
+.head .menu{
+  color: #79B132;
+}
+.head .menu text{
+  color: #aaa;
+}
+.head .post-time{
+  float: right;
+  color: #aaa;
+}
+.content{
+  margin-top: 80rpx;
+}
+.content text{
+  line-height: 55rpx;
+  font-size: 32rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.content image{
+  width: 100%;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+button{
+  width: 300rpx;
+  height: 120rpx;
+  background: #474F64;
+  border-radius: 120rpx;
+  margin-top: 50rpx;
+}
+button view{
+  height: 120rpx;
+  display: inline-block;
+}
+button image{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  float: left;
+  margin-top: 24rpx;
+  margin-right: 10rpx;
+}
+button text{
+  font-size: 48rpx;
+  float: left;
+  color: #fff;
+  display: block;
+}

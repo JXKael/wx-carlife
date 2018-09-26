@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class='header'>
+  <view class='zhec'></view>
+  <view class='bg'><image src='../../image/1.png' mode="widthFix"></image></view>
+  <view class='portrait-img'>
+    <image src='{{portrait}}' mode="widthFix"></image>
+  </view>
+  <view class='name' wx:if='{{hasUserInfo}}'>
+    <text>摄影达人</text>
+    <image src='../../image/editor.png'></image>
+  </view>
+  <view wx:else>
+    <button class='login' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">请授权登录</button>
+  </view>
+</view>
+<view class='wd-info-num'>
+  <view> 
+    <text>关注</text>
+    <text>{{focusNum}}</text>
+  </view>
+  <view>
+    <text>粉丝</text>
+    <text>{{fans}}</text>
+  </view>
+  <view>
+    <text>作品</text>
+    <text>{{works}}</text>
+  </view>
+</view>
+<view class='wd-info-box'>
+  <view>
+    <text>积分</text>
+    <text>{{integral}}</text>
+  </view>
+  <view>
+    <text>个性签名</text>
+    <text>{{signature}}</text>
+  </view>
+</view>

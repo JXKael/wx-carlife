@@ -1,0 +1,49 @@
+<!--homePage.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  circular="true">
+  <block wx:for="{{data.slides}}">
+    <swiper-item>
+      <image src="http://netcarlife.com/photograph/crop/315,150/{{item.image}}" class="slide-image" mode="widthFix"/>
+      <text>{{item.name}}</text>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="new-dynamic">
+  <view class='dynamic-title-img'>
+    <image src='../../image/slogen.png' mode="widthFix"></image>
+  </view>
+  <view class='dynamic-content'>
+    <image src='../../image/dynamic-icon.png' mode="widthFix"></image>
+    最新动态：<text>{{data.latestPost.nickName}}</text>发布了<text>{{data.latestPost.title}}</text>
+  </view>
+  <button bindtap="release">发布作品</button>
+</view>
+<view class='we-img'>
+  <image src='../../image/jies1.jpg' mode="widthFix"></image>
+  <view>
+  <image src='../../image/jies2.jpg' mode="widthFix"></image>
+  </view>
+  <view>
+  <image src='../../image/jies3.jpg' mode="widthFix"></image>
+  </view>
+</view>
+<view class='content-list'>
+  <block wx:for="{{dataList}}">
+    <view class='content-list-b'>
+      <image src='http://netcarlife.com/photograph/crop/144,96/{{item.thumb}}' mode="widthFix" data-postid='{{item.postId}}' bindtap='waDetail'></image>
+      <view>
+        <view class='user-n'>
+          <image src='http://netcarlife.com/photograph/crop/44,44/{{item.portrait}}' mode="widthFix"></image>
+          <text>{{item.nickName}}</text>
+        </view>
+        <text class='user-c' bindtap='waDetail' data-postid='{{item.postId}}'>{{item.title}}</text>
+        <view class='user-i'>
+          <image src='../../image/liej.png' mode="widthFix"></image>
+          <text>{{item.menuName}}</text>
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<text wx:if='{{more}}' class='notmore'>没有更多了...</text>

@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class='wrap'>
+  <view class='title'>
+    命名“缤瑞”，吉利首款运动风轿车高清官图发布
+  </view>
+  <view class='head'>
+    <text class='menu'><text>分类：</text>汽车 - 车魂魅影</text>
+    <text class='post-time'>2018-05-31 10:43发布</text>
+  </view>
+  <view class='content'>
+    <text>日前，吉利汽车官方公布旗下首款运动风轿车A06正式定名为“缤瑞”，并发布了一组实车高清官图。从官图来看，吉利缤瑞的外观在博瑞GE“时光竞速美学”设计理念的基础上，进行了更为年轻化的演绎，星河回纹前格栅、Fastback溜背造型、全LED大灯等看上去时尚动感、轿跑风十足。据了解，缤瑞是吉利今年推出的一款全球战略车型，上市后将进入英朗、朗逸、思域等合资热销车型所在的主流阵营。</text>
+    <image src='../../image/1.png' mode="widthFix"></image>
+    <text>缤瑞是吉利汽车专门针对年轻人群推出的中高端A+级运动风轿车，旨在为用户带来越级的驾乘体验和全新的生活方式。这款时尚运动的新车将点亮新势主流年青族群的都市生活，带给他们无限的可能性。</text>
+  </view>
+  <button>
+    <view>
+      <image src='../../image/zan.png' mode="widthFix"></image>
+      <text>1000</text>
+    </view>
+  </button>
+</view>

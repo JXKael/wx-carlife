@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap='wzList'>
+    车魂魅影
+    <image src='../../image/right-btn.png'></image>
+  </view>
+  <view bindtap='wzList'>
+    人车故事
+    <image src='../../image/right-btn.png'></image>
+  </view>
+  <view bindtap='wzList'>
+    自驾壮游
+    <image src='../../image/right-btn.png'></image>
+  </view>
+</view>

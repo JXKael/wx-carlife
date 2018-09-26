@@ -1,0 +1,143 @@
+/**index.wxss**/
+page{background: #f7f7f7;}
+.header{
+  width: 100%;
+  height: 393rpx;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.header .zhec{
+  width: 100%;
+  height: 393rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: -1;
+  opacity: .3;
+}
+.header .bg{
+  width: 100%;
+  height: 393rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+.header .bg image{
+  width: 100%;
+}
+.portrait-img{
+  width: 120rpx;
+  height: 120rpx;
+  background: #fff;
+  margin: 70rpx auto 0 auto;
+  border-radius: 120rpx;
+  overflow: hidden;
+}
+.portrait-img img{
+  width: 100%;
+}
+.name{
+  display: inline-block;
+  margin: 50rpx 0 0 0;
+}
+.name text{
+  display: block;
+  float: left;
+  font-size: 40rpx;
+  color: #FFFFFF;
+  line-height: 40rpx;
+  margin-right: 10rpx;
+}
+.name image{
+  display: block;
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+}
+.login{
+  margin-top: 30rpx;
+  background: transparent;
+  color: #fff;
+  font-size: 40rpx;
+}
+.login::after{
+  border: none;
+}
+.wd-info-num{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+.wd-info-num view{
+  width: 33%;
+  height: 166rpx;
+  float: left;
+}
+.wd-info-num view:nth-child(2){
+  width: 34%;
+  position: relative;
+}
+.wd-info-num view:nth-child(2)::after{
+  content:"";
+  width: 2rpx;
+  height: 76rpx;
+  background: #ccc;
+  display: block;
+  position: absolute;
+  top: 45rpx;
+  left: 0;
+}
+.wd-info-num view:nth-child(2)::before{
+  content:"";
+  width: 2rpx;
+  height: 76rpx;
+  background: #ccc;
+  display: block;
+  position: absolute;
+  top: 45rpx;
+  right: 0;
+}
+.wd-info-num view text{
+  display: block;
+}
+.wd-info-num view text:nth-child(1){
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.wd-info-num view text:nth-child(2){
+  font-size: 60rpx;
+  color: #282828; 
+  text-align: center;
+}
+.wd-info-box{
+  margin-top: 20rpx;
+  background: #fff;
+}
+.wd-info-box>view{
+  width: 686rpx;
+  height: 120rpx;
+  margin-left: 32rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.wd-info-box>view:last-child{
+  border-bottom: none;
+}
+.wd-info-box>view text{
+  display: block;
+}
+.wd-info-box>view text:nth-child(1){
+  float: left;
+  font-size: 32rpx;
+  color: #272727;
+  line-height: 120rpx;
+}
+.wd-info-box>view text:nth-child(2){
+  float: right;
+  font-size: 32rpx;
+  color: #CCCCCC;
+  line-height: 120rpx;
+}

@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class='wrap'>  
+  <view class='head'>
+    <view class='works-num'>
+      作品
+      <text>126</text>
+    </view>
+    <view class='title'>
+      <text>车魂魅影</text>
+      <text>有温度的汽车影像</text>
+    </view>
+  </view>
+  <view class='active-user'>
+    <view class='active-user-h1'>
+      <text>活跃用户</text>
+      <button>发布作品</button>
+    </view>
+    <view class='active-user-tx'>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+
+  <view class='content-list'>
+    <view class='content-list-b'>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <view>
+        <view class='user-n'>
+          <image src='../../image/h.jpeg' mode="widthFix"></image>
+          <text>车摄汇netcarlife</text>
+        </view>
+        <text class='user-c'>新Mustang携10AT和竞速模式燥起来 40.38万元起售</text>
+        <view class='user-i'>
+          <image src='../../image/liej.png' mode="widthFix"></image>
+          <text>车魂魅影</text>
+          <text>2小时前</text>
+        </view>
+      </view>
+    </view>
+    <view class='content-list-b'>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <view>
+        <view class='user-n'>
+          <image src='../../image/h.jpeg' mode="widthFix"></image>
+          <text>车摄汇netcarlife</text>
+        </view>
+        <text class='user-c'>新Mustang携10AT和竞速模式燥起来 40.38万元起售</text>
+        <view class='user-i'>
+          <image src='../../image/liej.png' mode="widthFix"></image>
+          <text>车魂魅影</text>
+          <text>2小时前</text>
+        </view>
+      </view>
+    </view>
+    <view class='content-list-b'>
+      <image src='../../image/1.png' mode="widthFix"></image>
+      <view>
+        <view class='user-n'>
+          <image src='../../image/h.jpeg' mode="widthFix"></image>
+          <text>车摄汇netcarlife</text>
+        </view>
+        <text class='user-c'>新Mustang携10AT和竞速模式燥起来 40.38万元起售</text>
+        <view class='user-i'>
+          <image src='../../image/liej.png' mode="widthFix"></image>
+          <text>车魂魅影</text>
+          <text>2小时前</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
