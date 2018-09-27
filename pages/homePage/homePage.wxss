@@ -1,4 +1,4 @@
-/**homePage.wxss**/
+/* pages/homePage/homePage.wxss */
 page{
   background: #f7f7f7;
   padding: 40rpx 60rpx 0 60rpx;
@@ -29,33 +29,88 @@ swiper-item text{
   padding-left: 15rpx;
 }
 
-.new-dynamic{width: 100%;background: #fff;padding: 15rpx 40rpx;box-sizing: border-box; margin-bottom: 40rpx;border-radius: 12rpx;overflow: hidden;}
+.new-dynamic{
+  width: 100%;
+  background: #fff;
+  padding: 15rpx 40rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
 
-.dynamic-title-img{border-bottom: 1rpx solid #eee;}
+.dynamic-title-img{
+  border-bottom: 1rpx solid #eee;
+}
 
-.dynamic-title-img image{width: 100%;}
+.dynamic-title-img image{
+  width: 100%;
+}
 
-.dynamic-content{position: relative;padding-left: 80rpx;box-sizing: border-box;font-size: 28rpx;color: #333;padding-top: 20rpx;padding-bottom: 20rpx;}
+.dynamic-content{
+  position: relative;
+  padding-left: 80rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
 
-.dynamic-content image{width: 60rpx;position: absolute;top: 50%;margin-top: -30rpx;left: 0;}
+.dynamic-content image{
+  width: 60rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -30rpx;
+  left: 0;
+}
 
-.dynamic-content text{color: #79B132;}
+.dynamic-content text{
+  color: #79B132;
+}
 
-.new-dynamic button{width: 310rpx;height: 108rpx;border-radius: 108rpx;background: #474F64;color: #fff;line-height: 108rpx;margin-top: 50rpx;}
+.new-dynamic button{
+  width: 310rpx;
+  height: 108rpx;
+  border-radius: 108rpx;
+  background: #474F64;
+  color: #fff;
+  line-height: 108rpx;
+  margin-top: 50rpx;
+}
 
-.new-dynamic button::after{border: none;}
+.new-dynamic button::after{
+  border: none;
+}
 
-.we-img{overflow: hidden;}
+.we-img{
+  overflow: hidden;
+}
 
-.we-img image{display: block; margin: auto;}
+.we-img image{
+  display: block;
+  margin: auto;
+}
 
-.we-img view{width: 288rpx;float: left;margin-top: 40rpx;}
+.we-img view{
+  width: 288rpx;
+  float: left;
+  margin-top: 40rpx;
+}
 
-.we-img view:last-child{float: right;}
+.we-img view:last-child{
+  float: right;
+}
 
-.we-img view image{width: 100%;}
+.we-img view image{
+  width: 100%;
+}
 
-.content-list{overflow: hidden;}
+.content-list{
+  overflow: hidden;
+}
 
-.content-list .content-list-b:nth-child(2n){margin-right: 0;}
+.content-list .content-list-b:nth-child(2n){
+  margin-right: 0;
+}
 

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/workDetails/workDetails.wxml-->
 <view class='wrap'>
   <view class='title'>
     命名“缤瑞”，吉利首款运动风轿车高清官图发布

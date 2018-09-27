@@ -1,4 +1,5 @@
-//index.js
+// pages/my/my.js
+
 //获取应用实例
 const app = getApp()
 
@@ -29,27 +30,32 @@ Page({
   //     }
   //   });
   // },
+  login: function(e) {
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
   getPhoneNumber: function(e){
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://test.com/onLogin',
-            data: {
-              code: res.code
-            }
-          })
-          console.log(1111)
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    });
-  },
+    console.log(e.detail.enc)
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       //发起网络请求
+    //       wx.request({
+    //         url: 'https://test.com/onLogin',
+    //         data: {
+    //           code: res.code
+    //         }
+    //       })
+    //       console.log(1111)
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // });
+  }
   // onLoad: function () {
   //   if (app.globalData.userInfo) {
   //     this.setData({

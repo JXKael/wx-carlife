@@ -1,5 +1,10 @@
-/**index.wxss**/
-page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
+/* pages/release/release.wxss */
+page{
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+}
+
 .box{
   width: 100%;
   height: 141rpx;
@@ -7,12 +12,14 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   border-bottom: 2rpx solid #f7f7f7;
   position: relative;
 }
+
 .box1{
   width: 100%;
   position: relative;
   background: #fff;
   padding: 50rpx 0;
 }
+
 .box1 text{
   font-size: 32rpx;
   color: #272727;
@@ -21,6 +28,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   box-sizing: border-box;
   padding-left: 30rpx;
 }
+
 .box1 .checkbox{
   display: inline-block;
   position: absolute;
@@ -28,6 +36,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   right: 30rpx;
   margin-top: -27rpx;
 }
+
 .box text{
   display: block;
   width: 230rpx;
@@ -38,6 +47,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   font-size: 32rpx;
   color: #272727;
 }
+
 .box input{
   width: 455rpx;
   float: left;
@@ -46,6 +56,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   text-align: right;
   font-size: 32rpx;
 }
+
 .box image{
   width: 15rpx;
   height: 25rpx;
@@ -53,6 +64,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   top: 60rpx;
   right: 32rpx;
 }
+
 .title-h1{
   width: 100%;
   height: 116rpx;
@@ -61,6 +73,7 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   color: #282828;
   line-height: 116rpx;
 }
+
 .section textarea{
   width: 100%;
   height: 260rpx;
@@ -68,10 +81,12 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   font-size: 32rpx;
   padding: 30rpx 30rpx;
 }
+
 .module{
   overflow: hidden;
   padding:0 30rpx 10rpx 30rpx;
 }
+
 .module text{
   width: 333rpx;
   height: 110rpx;
@@ -86,9 +101,11 @@ page{background: #f7f7f7;box-sizing: border-box;padding-top: 30rpx;}
   margin-right: 24rpx;
   margin-bottom: 30rpx;
 }
+
 .module text:nth-child(2n){
   margin-right: 0;
 }
+
 .cover text{
   display: block;
   width: 690rpx;

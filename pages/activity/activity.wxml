@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/activity/activity.wxml-->
 <view class='box'>
   <view class='head-img'>
     <image src='../../image/1.png' mode="widthFix"></image>

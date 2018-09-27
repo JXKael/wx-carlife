@@ -1,4 +1,4 @@
-<!--homePage.wxml-->
+<!--pages/homePage/homePage.wxml-->
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  circular="true">
   <block wx:for="{{data.slides}}">

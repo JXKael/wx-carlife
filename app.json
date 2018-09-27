@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/homePage/homePage",
     "pages/worksDetails/worksDetails",
     "pages/my/my",
@@ -8,13 +8,14 @@
     "pages/userinfo/userinfo",
     "pages/release/release",
     "pages/car/car",
-    "pages/motorcycle/motorcycle"
+    "pages/motorcycle/motorcycle",
+    "pages/login/login"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "车摄汇",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#A2A2A2",

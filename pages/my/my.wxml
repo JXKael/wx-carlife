@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/my/my.wxml-->
 <view class='header'>
   <view class='zhec'></view>
   <view class='bg'><image src='../../image/1.png' mode="widthFix"></image></view>
@@ -10,7 +10,7 @@
     <image src='../../image/editor.png'></image>
   </view>
   <view wx:else>
-    <button class='login' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">请授权登录</button>
+    <button class='login' bindtap='login'>请授权登录</button>
   </view>
 </view>
 <view class='wd-info-num'>

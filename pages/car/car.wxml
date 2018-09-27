@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/car/car.wxml-->
 <view class="container">
   <view bindtap='wzList'>
     车魂魅影

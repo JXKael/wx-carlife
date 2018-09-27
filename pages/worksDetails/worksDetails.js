@@ -1,4 +1,5 @@
-//index.js
+// pages/workDetails/workDetails.js
+
 //获取应用实例
 var util = require('../../utils/util');
 var request = require('../../utils/request.js');

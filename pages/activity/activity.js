@@ -1,4 +1,5 @@
-//index.js
+// pages/activity/activity.js
+
 //获取应用实例
 const app = getApp()
 

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/release/release.wxml-->
 <view class='box'>
   <text>作品标题</text>
   <input type='text' placeholder='未添加' placeholder-style="color:#CCCCCC;"/>

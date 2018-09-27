@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/motorcycle/motorcycle.wxml-->
 <view class="container">
   <view bindtap='wzList'>
     摩界映像

@@ -1,11 +1,14 @@
-//index.js
+// pages/homePage/homePage.js
+
 //获取应用实例
+const app = getApp();
+
 var util = require('../../utils/util');
 var request = require('../../utils/request.js');
-const app = getApp();
 
 var page = 1;
 var ismore = false;
+
 function list(that) {
   if (ismore == false) {
     request.requestData('index/'+page, "GET", {}, function (data) {
@@ -25,6 +28,7 @@ function list(that) {
     }, null, null)
   }
 }
+
 Page({
   data: {
     indicatorDots: false,

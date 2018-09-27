@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/userinfo/userinfo.wxml-->
 <view class='box' style='margin-top:20rpx;'>
   <text>头像</text>
   <image class='portrait-img'></image>
