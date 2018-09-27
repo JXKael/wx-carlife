@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class = "container">
+  <view class = "login-box">
+    <view class="login-box-item">
+      <view class="login-input-border">
+        <image class="login-icon" src="../../image/Mobile.png" mode="aspectFit"></image>
+        <input class="login-input" auto-focus placeholder="请输入手机号码"/>
+      </view>
+    </view>
+    <view class="login-box-item">
+      <view class="login-input-border">
+        <image class="login-icon" src="../../image/V_Code.png" mode="aspectFit"></image>
+        <input class="login-input" auto-focus placeholder="请输入验证码"/>
+        <text class="login-vcode-text" bindtap="getVCode">获取验证码</text>
+      </view>
+    </view>
+  </view>
+</view>

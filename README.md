@@ -1,5 +1,5 @@
 # wx-carlife
 
-small program
+my first wx-miniprogram for money
 
-money, money, money
+partner: Xu Hu
