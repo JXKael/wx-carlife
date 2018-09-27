@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    v_code_text: "获取验证码",
+    count_down: 60,
+    v_code_sent: "-not-sent"
   },
 
   /**
@@ -66,7 +68,26 @@ Page({
   /**
    * 获获取验证码
    */
-  getVCode: function() {
-    console.log("获取验证码")
+  getVCode: function () {
+    if (this.data.v_code_sent == "-sent") return
+  
+    var that = this
+    var intervalID = setInterval(function () {
+      var currTime = that.data.count_down
+      var newTime = currTime - 1
+      that.setData({
+        v_code_text: newTime + "s",
+        count_down: newTime,
+        v_code_sent: "-sent",
+      })
+      if (newTime <= 0) {
+        clearInterval(intervalID)
+        that.setData({
+          v_code_text: "获取验证码",
+          count_down: 60,
+          v_code_sent: "-not-sent",
+        })
+      }
+    }, 1000)
   }
 })

@@ -7,7 +7,7 @@
 }
 
 .login-box-item{
-  padding: 80rpx 0rpx 0rpx 0rpx;
+  margin: 80rpx 0rpx;
 }
 
 .login-input-border{
@@ -40,7 +40,7 @@
   color: black;
 }
 
-.login-vcode-text{
+.login-vcode-text-not-sent{
   margin: auto;
   position: relative;
   height: 80rpx;
@@ -49,4 +49,21 @@
   font-size: 25rpx;
   color: red;
   align-content: center;
+}
+
+.login-vcode-text-sent{
+  margin: auto;
+  position: relative;
+  height: 80rpx;
+  width: 200rpx;
+  line-height: 80rpx;
+  font-size: 25rpx;
+  color: #D9D9D9;
+  align-content: center;
+}
+
+.btn-login{
+  margin: 160rpx 0rpx;
+  color: white;
+  background-color: rgb(144, 181, 86);
 }
