@@ -4,16 +4,16 @@
     <view class="login-box-item">
       <view class="login-input-border">
         <image class="login-icon" src="../../image/Mobile.png" mode="aspectFit"></image>
-        <input class="login-input" auto-focus placeholder="请输入手机号码"/>
+        <input class="login-input" auto-focus="true" placeholder="请输入手机号码" type="number" maxlength="11" bindfocus="inputPhoneNumberFocus" bindblur="inputPhoneNumberBlur" />
       </view>
     </view>
     <view class="login-box-item">
       <view class="login-input-border">
         <image class="login-icon" src="../../image/V_Code.png" mode="aspectFit"></image>
-        <input class="login-input" auto-focus placeholder="请输入验证码"/>
-        <text class="login-vcode-text{{v_code_sent}}" bindtap="getVCode">{{v_code_text}}</text>
+        <input class="login-input" placeholder="请输入验证码" type="number" bindfocus="inputVCodeFocus" bindblur="inputVCodeBlur"/>
+        <text class="login-vcode-text{{v_code_sent}}" bindtap="onClickGetVCode">{{v_code_text}}</text>
       </view>
     </view>
-    <button class="btn-login">登录</button>
+    <button class="btn-login" bindtap="onClickBtnLogin">登录</button>
   </view>
 </view>
