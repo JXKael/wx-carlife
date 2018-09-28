@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.3.0",
 	"appid": "wx1454974ba77ae67a",
 	"projectname": "carlife",
 	"isGameTourist": false,

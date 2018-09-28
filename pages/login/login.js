@@ -61,10 +61,6 @@ Page({
   onClickGetVCode: function () {
     if (this.data.v_code_sent == "-sent") return
     if (this.data.phoneNumber.length == 0){
-      wx.showToast({
-        title: '请输入手机号',
-        icon: "none"
-      })
       return
     }
     if (this.data.phoneNumber.length < 11) {
@@ -165,10 +161,6 @@ Page({
    */
   onClickBtnLogin: function (e) {
     if (this.data.phoneNumber.length == 0) {
-      wx.showToast({
-        title: '请输入手机号',
-        icon: "none"
-      })
       return
     }
     if (this.data.phoneNumber.length < 11) {
@@ -179,10 +171,6 @@ Page({
       return
     }
     if (this.data.vCode.length == 0) {
-      wx.showToast({
-        title: '请输入验证码',
-        icon: "none"
-      })
       return
     }
     // 网络请求
@@ -198,7 +186,7 @@ Page({
       },
       function (data) {
         // 登录成功
-        console.log(data.member)
+        console.log(data.data.member)
         wx.hideLoading()
         // 设置存储
         if (data.data.member.nickname == null){
@@ -216,6 +204,10 @@ Page({
         // 登录失败
         console.log(data)
         wx.hideLoading()
+        wx.showToast({
+          title: "登录失败",
+          icon: "none"
+        })
       }, null)
   }
 })
