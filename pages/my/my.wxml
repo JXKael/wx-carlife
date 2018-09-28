@@ -1,19 +1,19 @@
 <!--pages/my/my.wxml-->
-<view class='header'>
-  <view class='zhec'></view>
-  <view class='bg'><image src='../../image/1.png' mode="widthFix"></image></view>
-  <view class='portrait-img'>
-    <image src='{{portrait}}' mode="widthFix"></image>
+<view class="header">
+  <view class="zhec"></view>
+  <view class="bg"><image src="../../image/1.png" mode="widthFix"></image></view>
+  <view class="portrait-img">
+    <image src="{{portrait}}" mode="widthFix"></image>
   </view>
-  <view class='name' wx:if='{{hasUserInfo}}'>
-    <text>摄影达人</text>
-    <image src='../../image/editor.png'></image>
+  <view class="name" wx:if="{{hasUserInfo}}">
+    <text>{{userProfile.nickname}}</text>
+    <image src="../../image/editor.png"></image>
   </view>
   <view wx:else>
-    <button class='login' bindtap='login'>请授权登录</button>
+    <button class="login" bindtap="onClickLogin">请授权登录</button>
   </view>
 </view>
-<view class='wd-info-num'>
+<view class="wd-info-num">
   <view> 
     <text>关注</text>
     <text>{{focusNum}}</text>
@@ -27,7 +27,7 @@
     <text>{{works}}</text>
   </view>
 </view>
-<view class='wd-info-box'>
+<view class="wd-info-box">
   <view>
     <text>积分</text>
     <text>{{integral}}</text>

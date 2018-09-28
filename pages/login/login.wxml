@@ -15,5 +15,6 @@
       </view>
     </view>
     <button class="btn-login" bindtap="onClickBtnLogin">登录</button>
+    <text class="hint-text">未注册用户登录默认注册为车摄会会员</text>
   </view>
 </view>

@@ -18,58 +18,43 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function () {},
 
-  },
   /**
    * 获取验证码
    */
@@ -136,9 +121,9 @@ Page({
           title: "获取验证码失败",
           icon: "none"
         })
-      },
-      null)
+      }, null)
   },
+
   /**
    * 手机号输入控件聚焦事件函数
    */
@@ -147,6 +132,7 @@ Page({
       phoneNumber: ""
     })
   },
+
   /**
    * 手机号输入控件失焦事件函数
    */
@@ -155,6 +141,7 @@ Page({
       phoneNumber: e.detail.value
     })
   },
+
   /**
    * 验证码输入控件聚焦事件函数
    */
@@ -163,15 +150,16 @@ Page({
       vCode: ""
     })
   },
+
   /**
    * 验证码输入控件失焦事件函数
    */
   inputVCodeBlur: function (e) {
-    console.log(e.detail)
     this.setData({
       vCode: e.detail.value
     })
   },
+
   /**
    * 点击登录事件函数
    */
@@ -210,18 +198,24 @@ Page({
       },
       function (data) {
         // 登录成功
-        console.log(data)
+        console.log(data.member)
         wx.hideLoading()
+        // 设置存储
+        if (data.data.member.nickname == null){
+          data.data.member.nickname = "摄影达人"
+        }
+        wx.setStorage({
+          key: "userProfile",
+          data: data.data.member,
+        })
         wx.navigateBack({
           delta: 1
         })
-        // 设置存储
       },
       function (data) {
         // 登录失败
         console.log(data)
         wx.hideLoading()
-      },
-      null)
+      }, null)
   }
 })
