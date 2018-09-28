@@ -72,19 +72,20 @@ Page({
     if (this.data.v_code_sent == "-sent") return
   
     var that = this
+    var countDown = 60
+    this.setData({
+      v_code_text: countDown + "s",
+      v_code_sent: "-sent",
+    })
     var intervalID = setInterval(function () {
-      var currTime = that.data.count_down
-      var newTime = currTime - 1
+      countDown -= 1
       that.setData({
-        v_code_text: newTime + "s",
-        count_down: newTime,
-        v_code_sent: "-sent",
+        v_code_text: countDown + "s",
       })
-      if (newTime <= 0) {
+      if (countDown <= 0) {
         clearInterval(intervalID)
         that.setData({
           v_code_text: "获取验证码",
-          count_down: 60,
           v_code_sent: "-not-sent",
         })
       }
