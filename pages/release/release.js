@@ -11,12 +11,12 @@ Page({
     intro: "", // 作品介绍
     hasCover: false, // 是否有封面
     imageCover: "", // 封面路径
-    content: [],
-    time: "",
-    location: "",
-    equip: "",
-    hasWaterMark: false,
-    hasAuth: false
+    content: [], // 正文
+    time: "", // 拍摄时间
+    location: "", // 拍摄地点
+    equip: "", // 拍摄装备
+    hasWaterMark: false, // 是否有水印
+    hasAuth: false // 是否授权
   },
   bindPickerChangeType: function (e) {
     var that = this;
@@ -27,6 +27,19 @@ Page({
   bindDateChange: function (e) {
     this.setData({
       dates: e.detail.value
+    })
+  },
+
+  /**
+   * 作品标题失焦事件函数
+   */
+
+  inputTitleFocusBlur: function (e) {
+    console.log("作品标题失去焦点")
+    console.log(e)
+    var value = e.detail.value
+    this.setData({
+      title: value
     })
   },
 
@@ -146,6 +159,17 @@ Page({
           imageCover: tempFilePaths
         })
       }
+    })
+  },
+
+  taParagraphFocusBlur: function (e) {
+    console.log("段落失去焦点")
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    var newContent = this.data.content
+    newContent[index].content = e.detail.value
+    this.setData({
+      content: newContent
     })
   },
 

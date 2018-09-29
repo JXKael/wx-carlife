@@ -2,7 +2,7 @@
 <view class = "container">
   <view class="box">
     <text>作品标题</text>
-    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;"/>
+    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;" bindblur = "inputTitleFocusBlur" />
     <!-- <image src="../../image/icon-tiaozhuan.png" mode="widthFix"></image> -->
   </view>
   <view class="box">
@@ -35,7 +35,7 @@
         <view class="section" bindlongtap = "onLongTapPatagraph" data-index = "{{item.index}}">
           <!-- <text>添加文字</text> -->
           <!-- <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;"/> -->
-          <textarea placeholder = "请输入文字" placeholder-style = "color:#CCCCCC;"/>
+          <textarea placeholder = "请输入文字" placeholder-style = "color:#CCCCCC;" data-index = "{{item.index}}" bindblur = "taParagraphFocusBlur" />
           <!-- <image src="../../image/icon-tiaozhuan.png" mode="widthFix"></image> -->
         </view>
       </block>
