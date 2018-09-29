@@ -19,12 +19,16 @@
   <button bindtap="release">发布作品</button>
 </view>
 <view class='we-img'>
-  <image src='../../image/jies1.jpg' mode="widthFix"></image>
-  <view>
-  <image src='../../image/jies2.jpg' mode="widthFix"></image>
+  <view class = ".we-img-item-single">
+    <image src='../../image/jies1.jpg' mode="widthFix"></image>
   </view>
-  <view>
-  <image src='../../image/jies3.jpg' mode="widthFix"></image>
+  <view class = "we-img-item-double">
+    <view class = "we-img-item-double-left">
+      <image src='../../image/jies2.jpg' mode="widthFix"></image>
+    </view>
+    <view class = "we-img-item-double-right">
+      <image src='../../image/jies3.jpg' mode="widthFix"></image>
+    </view>
   </view>
 </view>
 <view class='content-list'>

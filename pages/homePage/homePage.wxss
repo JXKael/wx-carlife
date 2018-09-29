@@ -84,25 +84,40 @@ swiper-item text{
 }
 
 .we-img{
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
-.we-img image{
+.we-img-item-single{
+  margin: 10rpx 0rpx;
   display: block;
-  margin: auto;
 }
 
-.we-img view{
-  width: 288rpx;
-  float: left;
-  margin-top: 40rpx;
+.we-img-item-single image{
+  width: 100%;
 }
 
-.we-img view:last-child{
-  float: right;
+.we-img-item-double{
+  display: flex;
+  flex-direction: row;
 }
 
-.we-img view image{
+.we-img-item-double-left{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0rpx 30rpx 0rpx 0rpx;
+}
+
+.we-img-item-double-right{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0rpx 0rpx 0rpx 30rpx;
+}
+
+.we-img-item-double image{
   width: 100%;
 }
 

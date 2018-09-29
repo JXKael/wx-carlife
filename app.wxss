@@ -1,6 +1,6 @@
 /**app.wxss**/
 .content-list-b{
-  width: 288rpx;
+  width: 289rpx;
   float: left;
   margin-top: 40rpx;
   position: relative;
