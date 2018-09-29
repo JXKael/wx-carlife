@@ -1,14 +1,15 @@
 /* pages/release/release.wxss */
 page{
+  height: 100%;
   background: #f7f7f7;
   box-sizing: border-box;
   padding-top: 30rpx;
 }
 
 .box{
-  width: 100%;
+  /* width: 100%; */
   height: 141rpx;
-  background: #fff;
+  background: white;
   border-bottom: 2rpx solid #f7f7f7;
   position: relative;
 }
@@ -16,7 +17,7 @@ page{
 .box1{
   width: 100%;
   position: relative;
-  background: #fff;
+  background: white;
   padding: 50rpx 0;
 }
 
@@ -49,7 +50,7 @@ page{
 }
 
 .box input{
-  width: 455rpx;
+  width: 485rpx;
   float: left;
   height: 141rpx;
   line-height: 141rpx;
@@ -66,20 +67,35 @@ page{
 }
 
 .title-h1{
-  width: 100%;
   height: 116rpx;
-  padding: 0 30rpx;
-  font-size: 36rpx;
+  margin: 0 30rpx;
+  font-size: 44rpx;
+  font-weight: bold;
   color: #282828;
   line-height: 116rpx;
 }
 
+.title-h2{
+  height: 58rpx;
+  margin: 0 30rpx;
+  font-size: 30rpx;
+  color: #282828;
+  line-height: 58rpx;
+}
+
 .section textarea{
-  width: 100%;
+  width: auto;
   height: 260rpx;
-  background: #fff;
+  background: white;
   font-size: 32rpx;
-  padding: 30rpx 30rpx;
+  padding: 30rpx;
+}
+
+.module-box{
+  background: white;
+  border-top: 2rpx solid #f7f7f7;
+  border-bottom: 2rpx solid #f7f7f7;
+  margin: 20rpx 0rpx;
 }
 
 .module{
@@ -90,7 +106,7 @@ page{
 .module text{
   width: 333rpx;
   height: 110rpx;
-  background: #fff;
+  background: #f7f7f7;
   float: left;
   border-radius: 12rpx;
   display: block;
@@ -106,6 +122,10 @@ page{
   margin-right: 0;
 }
 
+.cover{
+  margin: 20rpx auto;
+}
+
 .cover text{
   display: block;
   width: 690rpx;
@@ -113,9 +133,20 @@ page{
   background: #B3B3B3;
   border-radius: 12rpx;
   font-size: 40rpx;
-  color: #FFFFFF;
-  margin-left: 30rpx;
-  line-height: 392rpx;
+  color: white;
+  line-height: 391rpx;
   text-align: center;
-  margin-bottom: 40rpx;
+  margin: auto;
+}
+
+.cover image{
+  display: block;
+  margin: auto;
+  width: 690rpx;
+}
+
+.btn-commit button{
+  margin: 50rpx;
+  background-color: rgb(144, 181, 86);
+  color: white;
 }
