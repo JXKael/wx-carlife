@@ -18,12 +18,14 @@ Page({
     hasWaterMark: false, // 是否有水印
     hasAuth: false // 是否授权
   },
+
   bindPickerChangeType: function (e) {
     var that = this;
     that.setData({
       typeArrayTxt: that.data.typeArray[e.detail.value]
     })
   },
+
   bindDateChange: function (e) {
     this.setData({
       dates: e.detail.value
@@ -80,6 +82,7 @@ Page({
     var newContent = this.data.content;
     var newElementNum = this.data.elementNum
     newContent.push({
+      uniqueKey: "unique" + "_" + ctype + "_" + newElementNum,
       ctype: ctype,
       index: newElementNum,
       content: ""
@@ -99,6 +102,7 @@ Page({
     var newContent = this.data.content;
     var newElementNum = this.data.elementNum
     newContent.push({
+      uniqueKey: "unique" + "_" + ctype + "_" + newElementNum,
       ctype: ctype,
       index: newElementNum,
       hasImage: false,
@@ -116,6 +120,20 @@ Page({
    * 添加标注元素
    */
   insertLabel: function (ctype) {
+    var newContent = this.data.content;
+    var newElementNum = this.data.elementNum
+    newContent.push({
+      uniqueKey: "unique" + "_" + ctype + "_" + newElementNum,
+      ctype: ctype,
+      index: newElementNum,
+      content: ""
+    });
+
+    newElementNum++
+    this.setData({
+      content: newContent,
+      elementNum: newElementNum
+    });
   },
 
   /**
@@ -125,6 +143,7 @@ Page({
     var newContent = this.data.content;
     var newElementNum = this.data.elementNum
     newContent.push({
+      uniqueKey: "unique" + "_" + ctype + "_" + newElementNum,
       ctype: ctype,
       index: newElementNum,
       content: ""
@@ -162,21 +181,10 @@ Page({
     })
   },
 
-  taParagraphFocusBlur: function (e) {
-    console.log("段落失去焦点")
-    console.log(e)
-    var index = e.currentTarget.dataset.index
-    var newContent = this.data.content
-    newContent[index].content = e.detail.value
-    this.setData({
-      content: newContent
-    })
-  },
-
   /**
-   * 段落控件长按事件函数
+   * 元素长按事件函数
    */
-  onLongTapPatagraph: function (e) {
+  onLongPressElement: function (e) {
     console.log("onLongTapPatagraph")
     console.log(e)
     var that = this
@@ -185,21 +193,41 @@ Page({
       title: "提示",
       content: "确认删除此模块",
       success: function (res) {
-        if (res.confirm){
+        if (res.confirm) {
           // 删除此模块
           var newContent = that.data.content
-          var newElementNum = that.data.elementNum - 1
-          newContent.splice(index, 1);
-          for (var i = index; i < newElementNum; i++){
-            newContent[i].index--
+          if (newContent[index].index == index) {
+            var newElementNum = that.data.elementNum - 1
+            newContent.splice(index, 1);
+            for (var i = index; i < newElementNum; i++) {
+              newContent[i].index--
+            }
+            that.setData({
+              content: newContent,
+              elementNum: newElementNum
+            })
           }
-          that.setData({
-            content: newContent,
-            elementNum: newElementNum
-          })
         }
       }
     })
+  },
+
+  /**
+   * 正文文字失焦事件函数
+   */
+  taParagraphFocusBlur: function (e) {
+    console.log("段落失去焦点")
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    var newContent = this.data.content
+    if (newContent[index] != null){
+      // 经测试，长按之后点击确定会触发失焦事件，再触发长按成功回调
+      // 虽然本版本在前，但以防万一添加判空
+      newContent[index].content = e.detail.value
+      this.setData({
+        content: newContent
+      })
+    }
   },
 
   /**
@@ -225,6 +253,38 @@ Page({
         })
       }
     })
+  },
+
+  /**
+   * 标注文字失焦事件函数
+   */
+  taLabelFocusBlur: function (e) {
+    console.log("标注失去焦点")
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    var newContent = this.data.content
+    if (newContent[index] != null) {
+      newContent[index].content = e.detail.value
+      this.setData({
+        content: newContent
+      })
+    }
+  },
+
+  /**
+   * 视频失焦事件函数
+   */
+  taVideoFocusBlur: function (e) {
+    console.log("视频失去焦点")
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    var newContent = this.data.content
+    if (newContent[index] != null) {
+      newContent[index].content = e.detail.value
+      this.setData({
+        content: newContent
+      })
+    }
   },
 
   /**
