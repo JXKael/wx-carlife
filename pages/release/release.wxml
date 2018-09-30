@@ -88,13 +88,13 @@
   <!-- 拍摄地点 -->
   <view class="box">
     <text>拍摄地点</text>
-    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;"/>
+    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;" bindblur = "onLocationFocusBlur"/>
     <!-- <image src="../../image/icon-tiaozhuan.png" mode="widthFix"></image> -->
   </view>
   <!-- 拍摄装备 -->
   <view class="box">
     <text>拍摄装备</text>
-    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;"/>
+    <input type="text" placeholder="未添加" placeholder-style="color:#CCCCCC;" bindblur = "onEquipFocusBlur"/>
     <!-- <image src="../../image/icon-tiaozhuan.png" mode="widthFix"></image> -->
   </view>
   <!-- 水印 -->
