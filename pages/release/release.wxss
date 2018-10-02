@@ -18,7 +18,10 @@ page{
   width: 100%;
   position: relative;
   background: white;
-  padding: 50rpx 0;
+  padding: 0rpx 0;
+  height: 141rpx;
+  display: flex;
+  flex-direction: row;
 }
 
 .box1 text{
@@ -27,15 +30,13 @@ page{
   display: block;
   width: 576rpx;
   box-sizing: border-box;
-  padding-left: 30rpx;
+  margin: auto 0rpx auto 30rpx;
 }
 
-.box1 .checkbox{
-  display: inline-block;
-  position: absolute;
-  top: 50%;
+.box1 switch{
+  display: block;
   right: 30rpx;
-  margin-top: -27rpx;
+  margin: auto 0rpx auto 30rpx;
 }
 
 .box text{

@@ -3,7 +3,7 @@
   <view class="zhec"></view>
   <view class="bg"><image src="../../image/1.png" mode="widthFix"></image></view>
   <view class="portrait-img">
-    <image src="{{portrait}}" mode="widthFix"></image>
+    <image src="{{userProfile.portraitImage}}" mode="widthFix"></image>
   </view>
   <view class="name" wx:if="{{hasUserInfo}}">
     <text>{{userProfile.nickname}}</text>

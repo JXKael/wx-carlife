@@ -2,6 +2,11 @@
 
 //获取应用实例
 const app = getApp();
+
+var request = require('../../utils/request.js');
+
+var imageUploadURL = "http://netcarlife.com/editor/upload"
+
 Page({
   data: {
     title: "", // 作品标题
@@ -11,12 +16,52 @@ Page({
     intro: "", // 作品介绍
     hasCover: false, // 是否有封面
     imageCover: "", // 封面路径
+    coverURL: "", // 上传成功后图片url
     content: [], // 正文
+    imageNum: 0, // 图片数量
     dates: "", // 拍摄时间
     location: "", // 拍摄地点
     equip: "", // 拍摄装备
     hasWaterMark: false, // 是否有水印
-    hasAuth: false // 是否授权
+    hasAuth: false, // 是否授权
+    hasUserInfo: false, // 是否有用户信息
+    userProfile: {} // 用户信息
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this
+    var userProfile = wx.getStorage({
+      key: "userProfile",
+      success: function (res) {
+        that.setData({
+          hasUserInfo: true,
+          userProfile: res.data
+        })
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: "登录提示",
+          content: "您尚未登录，是否登录？",
+          success: function (res) {
+            if (res.confirm){
+              wx.navigateTo({
+                url: '../login/login',
+              })
+              return
+            }
+            if (res.cancel) {
+              wx.navigateBack({
+                delta: 1
+              })
+              return
+            }
+          }
+        })
+      }
+    })
   },
 
   bindPickerChangeType: function (e) {
@@ -99,7 +144,8 @@ Page({
       ctype: ctype,
       index: newElementNum,
       hasImage: false,
-      imagePath: ""
+      imagePath: "",
+      imageURL: ""
     });
 
     newElementNum++
@@ -149,10 +195,6 @@ Page({
     });
   },
 
-  checkboxChange: function (e) {
-    console.log(e)
-  },
-
   /**
    * 点击添加封面
    */
@@ -166,16 +208,18 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
+        var newImageNum = that.data.imageNum + 1
         that.setData({
           hasCover: true,
-          imageCover: tempFilePaths
+          imageCover: tempFilePaths[0],
+          imageNum: newImageNum
         })
       }
     })
   },
 
   /**
-   * 元素长按事件函数
+   * 元素长按事件函数，删除本元素
    */
   onLongPressElement: function (e) {
     console.log("onLongTapPatagraph")
@@ -191,13 +235,18 @@ Page({
           var newContent = that.data.content
           if (newContent[index].index == index) {
             var newElementNum = that.data.elementNum - 1
+            var newImageNum = that.data.imageNum
+            if (newContent[index].ctype == 1){
+              newImageNum--
+            }
             newContent.splice(index, 1);
             for (var i = index; i < newElementNum; i++) {
               newContent[i].index--
             }
             that.setData({
               content: newContent,
-              elementNum: newElementNum
+              elementNum: newElementNum,
+              imageNum: newImageNum
             })
           }
         }
@@ -239,10 +288,12 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
         var newContent = that.data.content
+        var newImageNum = that.data.imageNum +1
         newContent[index].hasImage = true
-        newContent[index].imagePath = tempFilePaths
+        newContent[index].imagePath = tempFilePaths[0]
         that.setData({
-          content: newContent
+          content: newContent,
+          imageNum: newImageNum
         })
       }
     })
@@ -281,9 +332,11 @@ Page({
   },
 
   /**
-  * 拍摄时间事件函数
-  */
+   * 拍摄时间事件函数
+   */
   bindDateChange: function (e) {
+    console.log("拍摄时间失去焦点")
+    console.log(e)
     this.setData({
       dates: e.detail.value
     })
@@ -301,8 +354,8 @@ Page({
   },
 
   /**
-  * 拍摄装备失去焦点事件函数
-  */
+   * 拍摄装备失去焦点事件函数
+   */
   onEquipFocusBlur: function (e) {
     console.log("拍摄地点失去焦点")
     console.log(e)
@@ -312,9 +365,141 @@ Page({
   },
 
   /**
+   * 添加水印
+   */
+  onWaterMarkCheckboxChange: function (e) {
+    console.log("添加水印")
+    console.log(e)
+    this.setData({
+      hasWaterMark: e.detail.value
+    })
+  },
+
+  /**
+   * 添加授权
+   */
+  onAuthCheckboxChange: function (e) {
+    console.log("添加授权")
+    console.log(e)
+    this.setData({
+      hasAuth: e.detail.value
+    })
+  },
+
+  /**
    * 点击提交
    */
   onTapBtnCommit: function (e) {
     console.log("提交")
+    // 检查内容是否符合规则
+    // if (this.data.title.length == 0){
+    //   wx.showToast({
+    //     title: "请添加标题",
+    //     icon: "none"    
+    //   })
+    //   return
+    // }
+    // if(this.data.typeArrayTxt.length <= 0){
+    //   wx.showToast({
+    //     title: "请选择栏目",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
+    // if (!this.data.hasCover){
+    //   wx.showToast({
+    //     title: "请添加封面",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
+    // if (!this.data.elementNum <= 0){
+    //   wx.showToast({
+    //     title: "请添加正文",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
+    // if (this.data.dates.length <= 0){
+    //   wx.showToast({
+    //     title: "请添加时间",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
+    // 网络请求
+    wx.showLoading({
+      title: "发布中",
+    })
+    this.uploadCover()
+    
+    // 内容
+    // for (var i = 0; i < this.data.elementNum; i++){
+    //   var imageElement = this.data.content[i]
+    //   if (imageElement.ctype != 1 || !imageElement.hasImage){
+    //     continue
+    //   }
+    //   wx.uploadFile({
+    //     url: "http://netcarlife.com/editor/upload",
+    //     filePath: imageElement.imagePath,
+    //     name: imageElement.uniqueKey,
+    //     success (res) {
+    //       console.log("上传正文图片成功")
+    //       console.log(res)
+    //     }
+    //   })
+    // }
+
+    // request.requestData("post/add", "POST",
+    //   {
+    //     memberId: this.data.userProfile.memberId,
+    //     MenuId: this.data.vCode
+    //   },
+    //   function (data) {
+    //     // 发布成功
+    //     console.log(data.data.member)
+    //     wx.hideLoading()
+    //     wx.navigateBack({
+    //       delta: 1
+    //     })
+    //   },
+    //   function (data) {
+    //     // 发布失败
+    //     console.log(data)
+    //     wx.hideLoading()
+    //     wx.showToast({
+    //       title: "发布失败",
+    //       icon: "none"
+    //     })
+    //   }, null
+    // )
+  },
+
+  /**
+   * 上传封面，成功后上传正文图片
+   */
+  uploadCover: function(e){
+    var that = this
+    // 封面
+    wx.uploadFile({
+      url: imageUploadURL,
+      filePath: that.data.imageCover,
+      name: "cover",
+      success(res) {
+        console.log("上传封面成功")
+        console.log(res)
+        that.data.coverURL = /* "http://netcarlife.com/photograph"  + */res.data
+        wx.hideLoading()
+      },
+      fail(res) {
+        console.log("上传失败")
+        console.log(e)
+        wx.hideLoading()
+        wx.showToast({
+          title: "上传失败",
+          icon: "none"
+        })
+      }
+    })
   }
 })

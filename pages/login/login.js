@@ -192,6 +192,9 @@ Page({
         if (data.data.member.nickname == null){
           data.data.member.nickname = "摄影达人"
         }
+        if (data.data.member.portraitImage != null){
+          data.data.member.portraitImage = "http://netcarlife.com/photograph/crop/144,96/" + data.data.member.portraitImage
+        }
         wx.setStorage({
           key: "userProfile",
           data: data.data.member,
@@ -208,6 +211,7 @@ Page({
           title: "登录失败",
           icon: "none"
         })
-      }, null)
+      }, null
+    )
   }
 })

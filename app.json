@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/release/release",
     "pages/homePage/homePage",
     "pages/worksDetails/worksDetails",
     "pages/my/my",
     "pages/list/list",
     "pages/activity/activity",
     "pages/userinfo/userinfo",
-
+    "pages/release/release",
     "pages/car/car",
     "pages/motorcycle/motorcycle",
     "pages/login/login"
