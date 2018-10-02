@@ -1,0 +1,39 @@
+<!--pages/modify/modify.wxml-->
+<view class="container">
+  <view class="box">
+    <text class="box-title">手机号</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{mobile}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">昵称</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{nickname}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">姓名</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{name}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">个性签名</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{sign}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">生日</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{birthday}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">性别</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">兴趣</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{interest}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">专业</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{profession}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+  <view class="box">
+    <text class="box-title">微博链接</text>
+    <input class="box-content" type="text" placeholder="未添加" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;"/>
+  </view>
+</view>

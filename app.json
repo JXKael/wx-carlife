@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/modify/modify",
+    "pages/my/my",
     "pages/homePage/homePage",
     "pages/worksDetails/worksDetails",
-    "pages/my/my",
     "pages/list/list",
     "pages/activity/activity",
     "pages/userinfo/userinfo",

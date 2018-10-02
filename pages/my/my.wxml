@@ -7,7 +7,7 @@
   </view>
   <view class="name" wx:if="{{hasUserInfo}}">
     <text>{{userProfile.nickname}}</text>
-    <image src="../../image/editor.png"></image>
+    <image src="../../image/editor.png" bindtap="onTapModify"></image>
   </view>
   <view wx:else>
     <button class="login" bindtap="onClickLogin">请授权登录</button>

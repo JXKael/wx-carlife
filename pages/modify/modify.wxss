@@ -1,0 +1,29 @@
+/* pages/modify/modify.wxss */
+
+.box{
+  display: flex;
+  flex-direction: row;
+  height: 128rpx;
+  background: white;
+  box-sizing: border-box;
+  margin: 0rpx 32rpx;
+}
+
+.box-title{
+  display: block;
+  float: left;
+  margin: auto 32rpx;
+  width: 300rpx;
+  line-height: 128rpx;
+  font-size: 32rpx;
+}
+
+.box-content{
+  display: block;
+  float: left;
+  margin: auto 32rpx;
+  width: auto;
+  text-align: right;
+  font-size: 32rpx;
+  line-height: 128rpx;
+}
