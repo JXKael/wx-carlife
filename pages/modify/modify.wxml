@@ -2,38 +2,45 @@
 <view class="container">
   <view class="box">
     <text class="box-title">手机号</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{mobile}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="number" placeholder="未设置" value="{{mobile}}" placeholder-style="color:#CCCCCC;"/>
+    <image class="right-arrow" src="../../image/right-btn.png" mode="aspectFit"></image>
   </view>
   <view class="box">
     <text class="box-title">昵称</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{nickname}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{nickname}}" placeholder-style="color:#CCCCCC;" bindblur="onNicknameBlur"/>
   </view>
   <view class="box">
-    <text class="box-title">姓名</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{name}}" placeholder-style="color:#CCCCCC;"/>
+    <text class="box-title">真实姓名</text>
+    <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{name}}" placeholder-style="color:#CCCCCC;" bindblur="onNameBlur"/>
   </view>
   <view class="box">
     <text class="box-title">个性签名</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{sign}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" maxlength="12" placeholder="未设置" value="{{sign}}" placeholder-style="color:#CCCCCC;"/>
   </view>
   <view class="box">
     <text class="box-title">生日</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{birthday}}" placeholder-style="color:#CCCCCC;"/>
+    <picker class="box-content" mode="date" value="{{date}}" start="1978-01-01" end="2020-01-01" bindchange="bindBirthdayChange">  
+      <input type="text" disabled="true" placeholder="未设置" value="{{birthday}}" placeholder-style="color:#CCCCCC;"/>
+    </picker> 
   </view>
   <view class="box">
     <text class="box-title">性别</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
+    <picker class="box-content" range="{{genders}}" bindchange="bindGenderChange">  
+      <input type="text" disabled="true" placeholder="未设置" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
+    </picker>
   </view>
   <view class="box">
     <text class="box-title">兴趣</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{interest}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" maxlength="12" placeholder="未设置" value="{{interest}}" placeholder-style="color:#CCCCCC;"/>
   </view>
   <view class="box">
     <text class="box-title">专业</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{profession}}" placeholder-style="color:#CCCCCC;"/>
+    <picker class="box-content" range="{{professions}}" range-key="{{val}}" bindchange="bindProfessionChange">  
+      <input type="text" disabled="true" placeholder="请选择" value="{{profession}}" placeholder-style="color:#CCCCCC;"/>
+    </picker>
   </view>
   <view class="box">
     <text class="box-title">微博链接</text>
-    <input class="box-content" type="text" placeholder="未添加" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" placeholder="未设置" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;"/>
   </view>
 </view>
