@@ -184,7 +184,7 @@ Page({
     request.requestData("member/update", "POST",
       {
         mobile: this.data.mobile, // 手机号
-        memberId: this.data.memberId, // 会员ID，唯一
+        // memberId: this.data.memberId, // 会员ID，唯一
         nickname: this.data.nickname, // 昵称
         name: this.data.name, // 姓名
         sign: this.data.sign, // 个性签名
@@ -200,17 +200,17 @@ Page({
         console.log(res.data)
         wx.hideLoading()
         // 更新存储
-        wx.setStorage({
-          key: "userProfile",
-          data: data.data.member,
-        })
+        // wx.setStorage({
+        //   key: "userProfile",
+        //   data: data.data.member,
+        // })
         wx.navigateBack({
           delta: 1
         })
       },
       function (res) {
         // 修改失败
-        consoel.log("修改失败")
+        console.log("修改失败")
         console.log(res)
         wx.hideLoading()
         wx.showToast({

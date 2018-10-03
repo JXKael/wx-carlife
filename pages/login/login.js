@@ -117,7 +117,8 @@ Page({
           title: "获取验证码失败",
           icon: "none"
         })
-      }, null)
+      }, null
+    )
   },
 
   /**

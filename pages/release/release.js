@@ -5,13 +5,33 @@ const app = getApp();
 
 var request = require('../../utils/request.js');
 
-var imageUploadURL = "http://netcarlife.com/editor/upload"
+var imageUploadURL = "https://netcarlife.com/editor/upload"
+
+var menu_hash = {
+  "汽车": 1,
+  "车魂魅影": 2,
+  "人车故事": 3,
+  "自驾壮游": 4,
+  "摩托车": 5,
+  "摩界映像": 6,
+  "骑行生活": 7,
+  "摩旅天下": 8,
+  "趣玩": 9,
+  "玩物": 10,
+  "玩家": 11
+}
 
 Page({
   data: {
     title: "", // 作品标题
-    typeArray: ['汪星人', '喵星人', '其他物种'],
-    typeArrayTxt: "",
+    mainMenu: ["汽车", "摩托车", "趣玩"],
+    mainMenuId: -1,
+    mainMenuTxt: "",
+    menu_0: ["车魂魅影", "人车故事", "自驾壮游"],
+    menu_1: ["摩界映像", "骑行生活", "摩旅天下"],
+    menu_2: ["玩物", "玩家"],
+    menuId: -1,
+    menuTxt: "",
     elementNum: 0,
     intro: "", // 作品介绍
     hasCover: false, // 是否有封面
@@ -64,11 +84,38 @@ Page({
     })
   },
 
-  bindPickerChangeType: function (e) {
-    var that = this;
-    that.setData({
-      typeArrayTxt: that.data.typeArray[e.detail.value]
+  /**
+   * 主栏目选择事件
+   */
+  bindMainMenuPickerChange: function (e) {
+    this.setData({
+      mainMenuId: e.detail.value,
+      mainMenuTxt: this.data.mainMenu[e.detail.value],
+      menuId: -1,
+      menuTxt: ""
     })
+  },
+
+  /**
+   * 子栏目选择
+   */
+  bindMenuPickerChange: function (e) {
+    if (this.data.mainMenuId == 0){
+      this.setData({
+        menuId: menu_hash[this.data.menu_0[e.detail.value]],
+        menuTxt: this.data.menu_0[e.detail.value]
+      })
+    }else if (this.data.mainMenuId == 1){
+      this.setData({
+        menuId: menu_hash[this.data.menu_1[e.detail.value]],
+        menuTxt: this.data.menu_1[e.detail.value]
+      })
+    }else if (this.data.mainMenuId == 2){
+      this.setData({
+        menuId: menu_hash[this.data.menu_2[e.detail.value]],
+        menuTxt: this.data.menu_2[e.detail.value]
+      })
+    }
   },
 
   /**
@@ -208,11 +255,9 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
-        var newImageNum = that.data.imageNum + 1
         that.setData({
           hasCover: true,
           imageCover: tempFilePaths[0],
-          imageNum: newImageNum
         })
       }
     })
@@ -399,7 +444,7 @@ Page({
     //   })
     //   return
     // }
-    // if(this.data.typeArrayTxt.length <= 0){
+    // if(this.data.menuTxt.length <= 0 or this.data.mainMenuTxt.length <= 0){
     //   wx.showToast({
     //     title: "请选择栏目",
     //     icon: "none"
@@ -428,72 +473,35 @@ Page({
     //   return
     // }
     // 网络请求
-    wx.showLoading({
-      title: "发布中",
-    })
     this.uploadCover()
-    
-    // 内容
-    // for (var i = 0; i < this.data.elementNum; i++){
-    //   var imageElement = this.data.content[i]
-    //   if (imageElement.ctype != 1 || !imageElement.hasImage){
-    //     continue
-    //   }
-    //   wx.uploadFile({
-    //     url: "http://netcarlife.com/editor/upload",
-    //     filePath: imageElement.imagePath,
-    //     name: imageElement.uniqueKey,
-    //     success (res) {
-    //       console.log("上传正文图片成功")
-    //       console.log(res)
-    //     }
-    //   })
-    // }
-
-    // request.requestData("post/add", "POST",
-    //   {
-    //     memberId: this.data.userProfile.memberId,
-    //     MenuId: this.data.vCode
-    //   },
-    //   function (data) {
-    //     // 发布成功
-    //     console.log(data.data.member)
-    //     wx.hideLoading()
-    //     wx.navigateBack({
-    //       delta: 1
-    //     })
-    //   },
-    //   function (data) {
-    //     // 发布失败
-    //     console.log(data)
-    //     wx.hideLoading()
-    //     wx.showToast({
-    //       title: "发布失败",
-    //       icon: "none"
-    //     })
-    //   }, null
-    // )
   },
 
   /**
    * 上传封面，成功后上传正文图片
    */
-  uploadCover: function(e){
+  uploadCover: function () {
+    wx.showLoading({
+      title: "正在上传封面",
+    })
     var that = this
     // 封面
     wx.uploadFile({
       url: imageUploadURL,
       filePath: that.data.imageCover,
-      name: "cover",
+      name: "file",
       success(res) {
         console.log("上传封面成功")
         console.log(res)
-        that.data.coverURL = /* "http://netcarlife.com/photograph"  + */res.data
+        that.setData({
+          coverURL: res.data
+        })
         wx.hideLoading()
+        // 上传正文图片
+        that.uploadImages()
       },
       fail(res) {
         console.log("上传失败")
-        console.log(e)
+        console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: "上传失败",
@@ -501,5 +509,137 @@ Page({
         })
       }
     })
+  },
+
+  /**
+   * 上传正文图片，递归调用
+   */
+  uploadImages: function () {
+    const imageURLs = []
+    this.uploadImage(0, imageURLs, 0)
+  },
+
+  /**
+   * 上传单个图片，递归调用，成功后调用发布文章
+   */
+  uploadImage: function (index, imageURLs, imageCount) {
+    var imageData = this.data.content[index]
+    if (imageData == null){
+      wx.hideLoading()
+      wx.showToast({
+        title: "上传图片成功",
+      })
+      console.log(imageURLs)
+      var newContent = this.data.content
+      for (var i = 0; i < this.data.elementNum; ++i) {
+        if (newContent[i].ctype != 1 || !newContent[i].hasImage) {
+          continue
+        }
+        newContent[i].imageURL = imageURLs[i]
+      }
+      this.setData({
+        content: newContent
+      })
+      this.uploadContent()
+      return
+    }
+    if (imageData.ctype != 1 || !imageData.hasImage){
+      imageURLs.push("not image")
+      this.uploadImage(++index, imageURLs, imageCount)
+      return
+    }
+    wx.showLoading({
+      title: "上传图片" + imageCount + "/" + this.data.imageNum,
+    })
+    var that = this
+    console.log(imageData.imagePath)
+    wx.uploadFile({
+      url: imageUploadURL,
+      filePath: imageData.imagePath,
+      name: "file",
+      success(res) {
+        console.log("上传正文图片成功")
+        console.log(res)
+        imageURLs.push(res.data)
+        wx.hideLoading()
+        that.uploadImage(++index, imageURLs, ++imageCount)
+      },
+      fail(res) {
+        console.log("上传正文图片失败")
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: "上传失败",
+          icon: "none"
+        })
+      }
+    })
+  },
+
+  /**
+   * 发布内容
+   */
+  uploadContent: function () {
+    wx.showLoading({
+      title: "发布中",
+    })
+    var post_content = []
+    for (var i = 0; i < this.data.elementNum; ++i) {
+      var ele = this.data.content[i]
+      switch (ele.ctype) {
+        case "0":
+          {
+            post_content.push({ text: ele.content })
+          }
+          break
+        case "1":
+          {
+            post_content.push({ image: ele.imageURL })
+          }
+          break
+        case "2":
+          {
+            post_content.push({ lab: ele.content })
+          }
+          break
+        case "3":
+          {
+            post_content.push({ video: ele.content })
+          }
+          break
+        default: break
+      }
+    }
+    console.log(post_content)
+    request.requestData("post/add", "POST",
+      {
+        memberId: this.data.userProfile.memberId, // memberID
+        menuId: this.data.menuId, // 栏目ID
+        thumb: this.data.coverURL, // 封面
+        content: post_content, // 内容
+      },
+      function (data) {
+        // 发布成功
+        console.log("发布成功")
+        console.log(data)
+        wx.hideLoading()
+        wx.showToast({
+          title: "发布成功"
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      function (data) {
+        // 发布失败
+        console.log("发布失败")
+        console.log(data)
+        wx.hideLoading()
+        wx.showToast({
+          title: "发布失败",
+          icon: "none"
+        })
+      }, null
+    )
   }
 })

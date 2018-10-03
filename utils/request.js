@@ -12,7 +12,7 @@ var util = require( 'util.js' );
  */
 function requestData(url, method, data, successCallback, errorCallback, completeCallback) {
     wx.request( {
-      url:"http://netcarlife.com/api/"+ url,
+      url:"https://netcarlife.com/api/"+ url,
         data: data,
         method: method,
         header: { 'content-type': 'application/x-www-form-urlencoded'},

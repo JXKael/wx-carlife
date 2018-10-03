@@ -8,15 +8,21 @@
   <!-- 主栏目 -->
   <view class="box">
     <text>请选择主栏目</text>
-    <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
-        <input type="text" name="animaltype" disabled="true" placeholder="未添加" value="{{typeArrayTxt}}" placeholder-style="color:#CCCCCC;"/>
+    <picker bindchange="bindMainMenuPickerChange" range="{{mainMenu}}">
+        <input type="text" name="animaltype" disabled="true" placeholder="未选择" value="{{mainMenuTxt}}" placeholder-style="color:#CCCCCC;"/>
     </picker>
   </view>
   <!-- 子栏目 -->
   <view class="box">
     <text>请选择子栏目</text>
-    <picker bindchange="bindPickerChangeType" range="{{typeArray}}">
-        <input type="text" name="animaltype" disabled="true" placeholder="未添加" value="{{typeArrayTxt}}" placeholder-style="color:#CCCCCC;"/>
+    <picker wx:if="{{mainMenuId == 0}}" bindchange="bindMenuPickerChange" range="{{menu_0}}">
+      <input type="text" name="animaltype" disabled="true" placeholder="未选择" value="{{menuTxt}}" placeholder-style="color:#CCCCCC;"/>
+    </picker>
+    <picker wx:if="{{mainMenuId == 1}}" bindchange="bindMenuPickerChange" range="{{menu_1}}">
+      <input type="text" name="animaltype" disabled="true" placeholder="未选择" value="{{menuTxt}}" placeholder-style="color:#CCCCCC;"/>
+    </picker>
+    <picker wx:if="{{mainMenuId == 2}}" bindchange="bindMenuPickerChange" range="{{menu_2}}">
+      <input type="text" name="animaltype" disabled="true" placeholder="未选择" value="{{menuTxt}}" placeholder-style="color:#CCCCCC;"/>
     </picker>
   </view>
   <!-- 作品介绍 -->
