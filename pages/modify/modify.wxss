@@ -34,3 +34,9 @@
   height: 30rpx;
   margin: auto;
 }
+
+.btn-commit{
+  margin: 32rpx;
+  color: white;
+  background-color: rgb(144, 181, 86);
+}

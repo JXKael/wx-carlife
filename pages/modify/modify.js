@@ -1,4 +1,7 @@
 // pages/modify/modify.js
+
+var request = require('../../utils/request.js');
+
 Page({
 
   /**
@@ -142,7 +145,7 @@ Page({
   /**
    * 兴趣
    */
-  onInterestBlue: function (e) {
+  onInterestBlur: function (e) {
     console.log("修改兴趣")
     this.setData({
       interest: e.detail.value
@@ -169,4 +172,52 @@ Page({
       weiboLink: e.detail.value
     })
   },
+
+  /**
+   * 提交修改
+   */
+  onClickBtnCommit: function (e) {
+    console.log("提交修改")
+    wx.showLoading({
+      title: "提交中",
+    })
+    request.requestData("member/update", "POST",
+      {
+        mobile: this.data.mobile, // 手机号
+        memberId: this.data.memberId, // 会员ID，唯一
+        nickname: this.data.nickname, // 昵称
+        name: this.data.name, // 姓名
+        sign: this.data.sign, // 个性签名
+        birthday: this.data.birthday, // 生日
+        sex: this.data.sex, // 性别
+        interest: this.data.interest, // 兴趣
+        profession: this.data.professionId, // 专业
+        weiboLink: this.data.weiboLink, // 微博链接
+      },
+      function (res) {
+        // 修改成功
+        consoel.log("修改成功")
+        console.log(res.data)
+        wx.hideLoading()
+        // 更新存储
+        wx.setStorage({
+          key: "userProfile",
+          data: data.data.member,
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      function (res) {
+        // 修改失败
+        consoel.log("修改失败")
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: "修改失败",
+          icon: "none"
+        })
+      }, null
+    )
+  }
 })

@@ -15,7 +15,7 @@
   </view>
   <view class="box">
     <text class="box-title">个性签名</text>
-    <input class="box-content" type="text" maxlength="12" placeholder="未设置" value="{{sign}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" placeholder="未设置" value="{{sign}}" placeholder-style="color:#CCCCCC;" bindblur="onSignBlur"/>
   </view>
   <view class="box">
     <text class="box-title">生日</text>
@@ -31,7 +31,7 @@
   </view>
   <view class="box">
     <text class="box-title">兴趣</text>
-    <input class="box-content" type="text" maxlength="12" placeholder="未设置" value="{{interest}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" placeholder="未设置" value="{{interest}}" placeholder-style="color:#CCCCCC;" bindblur="onInterestBlur"/>
   </view>
   <view class="box">
     <text class="box-title">专业</text>
@@ -41,6 +41,7 @@
   </view>
   <view class="box">
     <text class="box-title">微博链接</text>
-    <input class="box-content" type="text" placeholder="未设置" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;"/>
+    <input class="box-content" type="text" placeholder="未设置" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;" bindblur="onWeiboLinkBlur"/>
   </view>
+  <button class="btn-commit" bindtap="onClickBtnCommit">提交</button>
 </view>
