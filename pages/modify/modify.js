@@ -9,7 +9,7 @@ Page({
    */
   data: {
     bundMobile: false, // 是否绑定手机号
-    mobile: "16601109127", // 手机号
+    mobile: "", // 手机号
     memberId: "", // 会员ID，唯一
     portraitImage: "", // 头像
     nickname: "", // 昵称
@@ -37,9 +37,18 @@ Page({
         console.log(res.data)
         that.setData({
           bundMobile: res.data.bundMobile,
+          mobile: res.data.mobile,
           memberId: res.data.memberId,
           nickname: res.data.nickname,
-          portraitImage: res.data.portraitImage
+          portraitImage: res.data.portraitImage,
+          name: res.data.name,
+          sign: res.data.sign,
+          birthday: res.data.birthday,
+          sex: res.data.sex,
+          interest: res.data.interest,
+          professionId: res.data.profession,
+          profession: that.data.professions[res.data.profession],
+          weiboLink: res.data.weiboLink,
         })
       },
       fail: function (res) {
@@ -204,9 +213,9 @@ Page({
         //   key: "userProfile",
         //   data: data.data.member,
         // })
-        wx.navigateBack({
-          delta: 1
-        })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
       },
       function (res) {
         // 修改失败

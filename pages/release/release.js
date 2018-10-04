@@ -33,7 +33,7 @@ Page({
     menuId: -1,
     menuTxt: "",
     elementNum: 0,
-    intro: "", // 作品介绍
+    summary: "", // 作品介绍
     hasCover: false, // 是否有封面
     imageCover: "", // 封面路径
     coverURL: "", // 上传成功后图片url
@@ -133,12 +133,11 @@ Page({
   /**
    * 作品介绍失焦事件函数
    */
-  taIntroFocusBlur: function (e) {
+  taSummaryFocusBlur: function (e) {
     console.log("作品介绍失去焦点")
     console.log(e)
-    var value = e.detail.value
     this.setData({
-      intro: value
+      summary: e.detail.value
     })
   },
 
@@ -492,6 +491,8 @@ Page({
       success(res) {
         console.log("上传封面成功")
         console.log(res)
+        var lastIndex = res.data.lastIndexOf("/")
+        res.data = res.data.substring(lastIndex + 1, res.data.length)
         that.setData({
           coverURL: res.data
         })
@@ -560,6 +561,8 @@ Page({
       success(res) {
         console.log("上传正文图片成功")
         console.log(res)
+        var lastIndex = res.data.lastIndexOf("/")
+        res.data = res.data.substring(lastIndex + 1, res.data.length)
         imageURLs.push(res.data)
         wx.hideLoading()
         that.uploadImage(++index, imageURLs, ++imageCount)
@@ -610,14 +613,22 @@ Page({
         default: break
       }
     }
-    console.log(post_content)
+    var postData = {
+      memberId: this.data.userProfile.memberId, // memberID
+      title: this.data.title,// 标题
+      menuId: this.data.menuId, // 栏目ID
+      summary: this.data.summary,// 简介
+      thumb: this.data.coverURL, // 封面
+      content: JSON.stringify(post_content), // 内容
+      shootTime: this.data.dates, // 拍摄时间
+      address: this.data.location, // 拍摄地点
+      equipment: this.data.equip, // 拍摄装备
+      watermark: this.data.hasWaterMark ? 1 : 0, // 水印
+      authorization: this.data.hasAuth ? 1 : 0, // 授权
+    }
+    console.log(postData)
     request.requestData("post/add", "POST",
-      {
-        memberId: this.data.userProfile.memberId, // memberID
-        menuId: this.data.menuId, // 栏目ID
-        thumb: this.data.coverURL, // 封面
-        content: post_content, // 内容
-      },
+      postData,
       function (data) {
         // 发布成功
         console.log("发布成功")

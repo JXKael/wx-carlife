@@ -16,24 +16,24 @@
 <view class="wd-info-num">
   <view> 
     <text>关注</text>
-    <text>{{focusNum}}</text>
+    <text>{{userProfile.follow}}</text>
   </view>
   <view>
     <text>粉丝</text>
-    <text>{{fans}}</text>
+    <text>{{userProfile.fans}}</text>
   </view>
   <view>
     <text>作品</text>
-    <text>{{works}}</text>
+    <text>{{userProfile.postCount}}</text>
   </view>
 </view>
 <view class="wd-info-box">
   <view>
     <text>积分</text>
-    <text>{{integral}}</text>
+    <text>{{userProfile.point}}</text>
   </view>
   <view>
     <text>个性签名</text>
-    <text>{{signature}}</text>
+    <text>{{userProfile.sign}}</text>
   </view>
 </view>

@@ -179,7 +179,8 @@ Page({
       title: "请稍后",
       mask: true
     })
-
+    
+    var that = this
     request.requestData("member/login", "POST",
       {
         mobile: this.data.phoneNumber,
@@ -188,17 +189,46 @@ Page({
       function (data) {
         // 登录成功
         console.log(data.data.member)
+        var userProfile = data.data.member
         wx.hideLoading()
         // 设置存储
-        if (data.data.member.nickname == null){
-          data.data.member.nickname = "摄影达人"
+        if (userProfile.birthday == null) {
+          userProfile.birthday = ""
         }
-        if (data.data.member.portraitImage != null){
-          data.data.member.portraitImage = "http://netcarlife.com/photograph/crop/144,96/" + data.data.member.portraitImage
+        if (userProfile.fans == null){
+          userProfile.fans = 0
         }
+        if (userProfile.follow == null) {
+          userProfile.follow = 0
+        }
+        if (userProfile.name == null) {
+          userProfile.name = ""
+        }
+        if (userProfile.nickname == null) {
+          userProfile.nickname = "摄影达人"
+        }
+        if (userProfile.point == null) {
+          userProfile.point = 0
+        }
+        if (userProfile.portraitImage != null) {
+          userProfile.portraitImage = "http://netcarlife.com/photograph/crop/144,96/" + userProfile.portraitImage
+        }
+        if (userProfile.postCount == null) {
+          userProfile.postCount = 0
+        }
+        if (userProfile.profession == null) {
+          userProfile.profession = 0
+        }
+        if (userProfile.sign == null) {
+          userProfile.sign = ""
+        }
+        if (userProfile.weiboLink == null) {
+          userProfile.weiboLink = ""
+        }
+        userProfile.mobile = that.data.phoneNumber
         wx.setStorage({
           key: "userProfile",
-          data: data.data.member,
+          data: userProfile,
         })
         wx.navigateBack({
           delta: 1

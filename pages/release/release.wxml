@@ -28,7 +28,7 @@
   <!-- 作品介绍 -->
   <view class="title-h1">作品介绍</view>
   <view class="section">
-    <textarea placeholder="请输入作品介绍" placeholder-style="color:#CCCCCC;" bindblur = "taIntroFocusBlur" />
+    <textarea placeholder="请输入作品介绍" placeholder-style="color:#CCCCCC;" bindblur = "taSummaryFocusBlur" value="{{summary}}"/>
   </view>
   <view class="title-h1">作品正文</view>
   <!-- 封面 -->
