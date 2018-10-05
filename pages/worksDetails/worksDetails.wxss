@@ -76,3 +76,26 @@ button text{
   color: #fff;
   display: block;
 }
+
+.content-text{
+  width: 100%;
+  font-size: 36rpx;
+}
+
+.content-lab{
+  width: 100%;
+  text-align: right;
+  font-size: 28rpx;
+  color: rgb(95, 95, 95);
+}
+
+.content-video{
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx;
+}
+
+.content-video video{
+  width: 100%;
+  margin: 0rpx auto;
+}

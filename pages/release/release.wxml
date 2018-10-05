@@ -30,14 +30,16 @@
   <view class="section">
     <textarea placeholder="请输入作品介绍" placeholder-style="color:#CCCCCC;" bindblur = "taSummaryFocusBlur" value="{{summary}}"/>
   </view>
-  <view class="title-h1">作品正文</view>
+  <view class="title-h1">作品封面</view>
   <!-- 封面 -->
   <view class="cover">
     <text bindtap = "onTapChooseCoverImage" wx:if = "{{!hasCover}}">点击上传封面</text>
-    <image src = "{{imageCover}}" mode = "widthFix" wx:if = "{{hasCover}}"></image>
+    <image src = "{{imageCover}}" mode = "widthFix" wx:if = "{{hasCover}}" bindlongpress = "onLongPressCover"></image>
   </view>
   <!-- 正文 -->
+  <view class="title-h1">作品正文</view>
   <view class="content">
+    <text class='content-null' wx:if='{{elementNum == 0}}'>内容为空</text>
     <block wx:for = "{{content}}" wx:for-index = "idx" wx:for-item = "item" wx:key = "unique">
       <!-- 文字 -->
       <block wx:if = "{{item.ctype == 0}}">

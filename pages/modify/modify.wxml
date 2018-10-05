@@ -2,8 +2,8 @@
 <view class="container">
   <view class="box">
     <text class="box-title">手机号</text>
-    <input class="box-content" type="number" placeholder="未设置" value="{{mobile}}" placeholder-style="color:#CCCCCC;"/>
-    <image class="right-arrow" src="../../image/right-btn.png" mode="aspectFit"></image>
+    <input class="box-content" type="number" placeholder="未设置" value="{{mobile}}" disabled="true" placeholder-style="color:#CCCCCC;" style="color:#CCCCCC"/>
+    <!-- <image class="right-arrow" src="../../image/right-btn.png" mode="aspectFit"></image> -->
   </view>
   <view class="box">
     <text class="box-title">昵称</text>

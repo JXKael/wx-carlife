@@ -263,10 +263,31 @@ Page({
   },
 
   /**
+   * 封面长按事件
+   */
+  onLongPressCover: function (e) {
+    console.log("长按封面")
+    console.log(e)
+    var that = this
+    if (!this.data.hasCover) return
+    var index = e.currentTarget.dataset.index
+    wx.showModal({
+      title: "提示",
+      content: "重新选择封面",
+      success: function (res) {
+        if (res.confirm) {
+          // 重新选择封面
+          that.onTapChooseCoverImage()
+        }
+      }
+    })
+  },
+
+  /**
    * 元素长按事件函数，删除本元素
    */
   onLongPressElement: function (e) {
-    console.log("onLongTapPatagraph")
+    console.log("长按元素")
     console.log(e)
     var that = this
     var index = e.currentTarget.dataset.index
@@ -436,42 +457,46 @@ Page({
   onTapBtnCommit: function (e) {
     console.log("提交")
     // 检查内容是否符合规则
-    // if (this.data.title.length == 0){
-    //   wx.showToast({
-    //     title: "请添加标题",
-    //     icon: "none"    
-    //   })
-    //   return
-    // }
-    // if(this.data.menuTxt.length <= 0 or this.data.mainMenuTxt.length <= 0){
-    //   wx.showToast({
-    //     title: "请选择栏目",
-    //     icon: "none"
-    //   })
-    //   return
-    // }
-    // if (!this.data.hasCover){
-    //   wx.showToast({
-    //     title: "请添加封面",
-    //     icon: "none"
-    //   })
-    //   return
-    // }
-    // if (!this.data.elementNum <= 0){
-    //   wx.showToast({
-    //     title: "请添加正文",
-    //     icon: "none"
-    //   })
-    //   return
-    // }
-    // if (this.data.dates.length <= 0){
-    //   wx.showToast({
-    //     title: "请添加时间",
-    //     icon: "none"
-    //   })
-    //   return
-    // }
+    if (this.data.title.length == 0){
+      wx.showToast({
+        title: "请添加标题",
+        icon: "none"    
+      })
+      return
+    }
+    if(this.data.menuTxt.length <= 0 || this.data.mainMenuTxt.length <= 0){
+      wx.showToast({
+        title: "请选择栏目",
+        icon: "none"
+      })
+      return
+    }
+    if (!this.data.hasCover){
+      wx.showToast({
+        title: "请添加封面",
+        icon: "none"
+      })
+      return
+    }
+    if (this.data.elementNum <= 0){
+      wx.showToast({
+        title: "请添加正文",
+        icon: "none"
+      })
+      return
+    }
+    if (this.data.dates.length <= 0){
+      wx.showToast({
+        title: "请添加时间",
+        icon: "none"
+      })
+      return
+    }
     // 网络请求
+    this.startCommit()
+  },
+
+  startCommit: function () {
     this.uploadCover()
   },
 
@@ -505,7 +530,7 @@ Page({
         console.log(res)
         wx.hideLoading()
         wx.showToast({
-          title: "上传失败",
+          title: "上传封面失败",
           icon: "none"
         })
       }
@@ -572,7 +597,7 @@ Page({
         console.log(res)
         wx.hideLoading()
         wx.showToast({
-          title: "上传失败",
+          title: "上传图片失败",
           icon: "none"
         })
       }
@@ -590,26 +615,10 @@ Page({
     for (var i = 0; i < this.data.elementNum; ++i) {
       var ele = this.data.content[i]
       switch (ele.ctype) {
-        case "0":
-          {
-            post_content.push({ text: ele.content })
-          }
-          break
-        case "1":
-          {
-            post_content.push({ image: ele.imageURL })
-          }
-          break
-        case "2":
-          {
-            post_content.push({ lab: ele.content })
-          }
-          break
-        case "3":
-          {
-            post_content.push({ video: ele.content })
-          }
-          break
+        case "0": post_content.push({ text: ele.content }); break;
+        case "1": post_content.push({ image: ele.imageURL }); break;
+        case "2": post_content.push({ lab: ele.content }); break;
+        case "3": post_content.push({ video: ele.content }); break;
         default: break
       }
     }
@@ -626,6 +635,7 @@ Page({
       watermark: this.data.hasWaterMark ? 1 : 0, // 水印
       authorization: this.data.hasAuth ? 1 : 0, // 授权
     }
+    console.log("文章内容")
     console.log(postData)
     request.requestData("post/add", "POST",
       postData,
@@ -637,9 +647,9 @@ Page({
         wx.showToast({
           title: "发布成功"
         })
-        wx.navigateBack({
-          delta: 1
-        })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
       },
       function (data) {
         // 发布失败
@@ -647,7 +657,7 @@ Page({
         console.log(data)
         wx.hideLoading()
         wx.showToast({
-          title: "发布失败",
+          title: data.data.message,
           icon: "none"
         })
       }, null

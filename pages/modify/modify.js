@@ -205,7 +205,7 @@ Page({
       },
       function (res) {
         // 修改成功
-        consoel.log("修改成功")
+        console.log("修改成功")
         console.log(res.data)
         wx.hideLoading()
         // 更新存储
