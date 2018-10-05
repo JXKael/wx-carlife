@@ -1,13 +1,28 @@
 /* pages/modify/modify.wxss */
 
+.box-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  border-bottom: 2rpx solid #dfdfdf;
+  margin: 0rpx 32rpx;
+  overflow: hidden;
+}
+
 .box{
   display: flex;
   flex-direction: row;
   height: 128rpx;
   background: white;
   box-sizing: border-box;
-  border-bottom: 2rpx solid #dfdfdf;
-  margin: 0rpx 32rpx;
+
+  transition: height .3s;
+}
+
+.box-open{
+  height: 256rpx;
 }
 
 .box-title{
@@ -17,6 +32,12 @@
   width: 140rpx;
   line-height: 128rpx;
   font-size: 32rpx;
+
+  transition: opacity .3s;
+}
+
+.box-title-open{
+  opacity: .4;
 }
 
 .box-content{
@@ -27,12 +48,51 @@
   text-align: right;
   font-size: 32rpx;
   line-height: 128rpx;
+
+  transition: opacity .3s;
+}
+
+.box-content-open{
+  opacity: .2;
+}
+
+.box-list{
+  top: 128rpx;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0rpx 32rpx;
+
+  transition: height .3s;
+}
+
+.box-list-open{
+  height: auto;
+}
+
+.box-list-item{
+  margin: 7rpx;
 }
 
 .right-arrow{
   width: 30rpx;
   height: 30rpx;
   margin: auto;
+}
+
+.down-arrow{
+  transform: rotate(90deg);
+  width: 30rpx;
+  height: 30rpx;
+  margin: auto;
+
+  transition: transform .3s;
+}
+
+.down-arrow-open{
+  transform: rotate(-90deg);
 }
 
 .btn-commit{

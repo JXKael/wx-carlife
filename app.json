@@ -4,12 +4,10 @@
     "pages/release/release",
     "pages/my/my",
     "pages/modify/modify",
-    
     "pages/worksDetails/worksDetails",
     "pages/list/list",
     "pages/activity/activity",
     "pages/userinfo/userinfo",
-    
     "pages/car/car",
     "pages/motorcycle/motorcycle",
     "pages/login/login"

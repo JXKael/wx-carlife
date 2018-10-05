@@ -552,9 +552,6 @@ Page({
     var imageData = this.data.content[index]
     if (imageData == null){
       wx.hideLoading()
-      wx.showToast({
-        title: "上传图片成功",
-      })
       console.log(imageURLs)
       var newContent = this.data.content
       for (var i = 0; i < this.data.elementNum; ++i) {
@@ -645,11 +642,14 @@ Page({
         console.log(data)
         wx.hideLoading()
         wx.showToast({
-          title: "发布成功"
+          title: "发布成功",
+          mask: true
         })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1500)
       },
       function (data) {
         // 发布失败
@@ -658,7 +658,8 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: data.data.message,
-          icon: "none"
+          icon: "none",
+          mask: true
         })
       }, null
     )

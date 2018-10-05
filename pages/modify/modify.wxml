@@ -1,47 +1,73 @@
 <!--pages/modify/modify.wxml-->
 <view class="container">
-  <view class="box">
-    <text class="box-title">手机号</text>
-    <input class="box-content" type="number" placeholder="未设置" value="{{mobile}}" disabled="true" placeholder-style="color:#CCCCCC;" style="color:#CCCCCC"/>
-    <!-- <image class="right-arrow" src="../../image/right-btn.png" mode="aspectFit"></image> -->
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">手机号</text>
+      <input class="box-content" type="number" placeholder="未设置" value="{{mobile}}" disabled="true" placeholder-style="color:#CCCCCC;" style="color:#CCCCCC"/>
+      <!-- <image class="right-arrow" src="../../image/right-btn.png" mode="aspectFit"></image> -->
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">昵称</text>
-    <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{nickname}}" placeholder-style="color:#CCCCCC;" bindblur="onNicknameBlur"/>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">昵称</text>
+      <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{nickname}}" placeholder-style="color:#CCCCCC;" bindblur="onNicknameBlur"/>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">真实姓名</text>
-    <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{name}}" placeholder-style="color:#CCCCCC;" bindblur="onNameBlur"/>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">真实姓名</text>
+      <input class="box-content" type="text" maxlength="8" placeholder="未设置" value="{{name}}" placeholder-style="color:#CCCCCC;" bindblur="onNameBlur"/>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">个性签名</text>
-    <input class="box-content" type="text" placeholder="未设置" value="{{sign}}" placeholder-style="color:#CCCCCC;" bindblur="onSignBlur"/>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">个性签名</text>
+      <input class="box-content" type="text" placeholder="未设置" value="{{sign}}" placeholder-style="color:#CCCCCC;" bindblur="onSignBlur"/>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">生日</text>
-    <picker class="box-content" mode="date" value="{{date}}" start="1978-01-01" end="2020-01-01" bindchange="bindBirthdayChange">  
-      <input type="text" disabled="true" placeholder="未设置" value="{{birthday}}" placeholder-style="color:#CCCCCC;"/>
-    </picker> 
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">生日</text>
+      <picker class="box-content" mode="date" value="{{date}}" start="1978-01-01" end="2020-01-01" bindchange="bindBirthdayChange">  
+        <input type="text" disabled="true" placeholder="未设置" value="{{birthday}}" placeholder-style="color:#CCCCCC;"/>
+      </picker> 
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">性别</text>
-    <picker class="box-content" range="{{genders}}" bindchange="bindGenderChange">  
-      <input type="text" disabled="true" placeholder="未设置" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
-    </picker>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">性别</text>
+      <picker class="box-content" range="{{genders}}" bindchange="bindGenderChange">  
+        <input type="text" disabled="true" placeholder="未设置" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
+      </picker>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">兴趣</text>
-    <input class="box-content" type="text" placeholder="未设置" value="{{interest}}" placeholder-style="color:#CCCCCC;" bindblur="onInterestBlur"/>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title {{isInterestOpen?'box-title-open':''}}">兴趣</text>
+      <input class="box-content {{isInterestOpen?'box-content-open':''}}" type="text" placeholder="未设置" value="{{interestTxt}}" placeholder-style="color:#CCCCCC;" bindtap='onTapInterest' disabled='true'/>
+      <image class="down-arrow {{isInterestOpen?'down-arrow-open':''}}" src="../../image/right-btn.png" mode="aspectFit"></image>
+    </view>
+    <view wx:if="{{isInterestOpen}}" class="box-list {{isInterestOpen?'box-list-open':'' }}">
+      <checkbox-group bindchange='onInterestCheckBoxChange'>
+        <label wx:for='{{interests}}'>
+          <checkbox class='box-list-item' value='{{item.id}}' checked="{{item.checked}}">{{item.name}}</checkbox>
+        </label>
+      </checkbox-group>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">专业</text>
-    <picker class="box-content" range="{{professions}}" range-key="{{val}}" bindchange="bindProfessionChange">  
-      <input type="text" disabled="true" placeholder="请选择" value="{{profession}}" placeholder-style="color:#CCCCCC;"/>
-    </picker>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">专业</text>
+      <picker class="box-content" range="{{professions}}" range-key="{{val}}" bindchange="bindProfessionChange">  
+        <input type="text" disabled="true" placeholder="请选择" value="{{profession}}" placeholder-style="color:#CCCCCC;"/>
+      </picker>
+    </view>
   </view>
-  <view class="box">
-    <text class="box-title">微博链接</text>
-    <input class="box-content" type="text" placeholder="未设置" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;" bindblur="onWeiboLinkBlur"/>
+  <view class='box-container'>
+    <view class="box">
+      <text class="box-title">微博链接</text>
+      <input class="box-content" type="text" placeholder="未设置" value="{{weiboLink}}" placeholder-style="color:#CCCCCC;" bindblur="onWeiboLinkBlur"/>
+    </view>
   </view>
   <button class="btn-commit" bindtap="onClickBtnCommit">提交</button>
 </view>
