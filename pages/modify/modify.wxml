@@ -37,7 +37,7 @@
     <view class="box">
       <text class="box-title">性别</text>
       <picker class="box-content" range="{{genders}}" bindchange="bindGenderChange">  
-        <input type="text" disabled="true" placeholder="未设置" value="{{sex}}" placeholder-style="color:#CCCCCC;"/>
+        <input type="text" disabled="true" placeholder="未设置" value="{{sexTxt}}" placeholder-style="color:#CCCCCC;"/>
       </picker>
     </view>
   </view>

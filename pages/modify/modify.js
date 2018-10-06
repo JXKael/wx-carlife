@@ -16,14 +16,15 @@ Page({
     name: "", // 姓名
     sign: "", // 个性签名
     birthday: "", // 生日
-    sex: "", // 性别
+    sex: 0, // 性别
+    sexTxt: "",
     interest: [], // 兴趣
     interestTxt: "", 
     professionId: 0, 
     profession: "", // 专业
     weiboLink: "", // 微博链接
 
-    genders: ["男", "女"],
+    genders: ["保密", "男", "女"],
     professions: ["请选择", "电子、电器", "管理", "汽车", "机械", "计算机", "服务", "高新", "农副", "其他"],
     interests: [
       {
@@ -110,6 +111,7 @@ Page({
           sign: res.data.sign,
           birthday: res.data.birthday,
           sex: res.data.sex,
+          sexTxt: that.data.genders[res.data.sex],
           interest: res.data.interest,
           interestTxt: text,
           professionId: res.data.profession,
@@ -214,7 +216,8 @@ Page({
     console.log("修改性别")
     console.log(e)
     this.setData({
-      sex: this.data.genders[(e.detail.value)]
+      sex: e.detail.value,
+      sexTxt: this.data.genders[(e.detail.value)]
     })
   },
 
@@ -286,7 +289,7 @@ Page({
       name: this.data.name, // 姓名
       sign: this.data.sign, // 个性签名
       birthday: this.data.birthday, // 生日
-      sex: this.data.sex, // 性别
+      sex: Number(this.data.sex), // 性别
       interest: JSON.stringify(this.data.interest), // 兴趣
       profession: this.data.professionId, // 专业
       weiboLink: this.data.weiboLink, // 微博链接
