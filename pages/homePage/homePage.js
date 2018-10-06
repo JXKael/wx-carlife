@@ -32,7 +32,7 @@ function list(that) {
 Page({
   data: {
     indicatorDots: false,
-    autoplay: false,
+    autoplay: true,
     interval: 3000,
     duration: 1000,
     Res:[],
