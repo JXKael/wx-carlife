@@ -1,14 +1,14 @@
 <!--pages/motorcycle/motorcycle.wxml-->
 <view class="container">
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='6'>
     摩界映像
     <image src='../../image/right-btn.png'></image>
   </view>
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='7'>
     骑行生活
     <image src='../../image/right-btn.png'></image>
   </view>
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='8'>
     摩旅天下
     <image src='../../image/right-btn.png'></image>
   </view>

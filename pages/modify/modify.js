@@ -27,58 +27,19 @@ Page({
     genders: ["保密", "男", "女"],
     professions: ["请选择", "电子、电器", "管理", "汽车", "机械", "计算机", "服务", "高新", "农副", "其他"],
     interests: [
-      {
-        id: 1,
-        name: "汽车",
-      },
-      {
-        id: 2,
-        name: "摩托车",
-      },
-      {
-        id: 3,
-        name: "改装",
-      },
-      {
-        id: 4,
-        name: "旅游",
-      },
-      {
-        id: 5,
-        name: "摄影",
-      },
-      {
-        id: 6,
-        name: "音乐",
-      },
-      {
-        id: 7,
-        name: "文学",
-      },
-      {
-        id: 8,
-        name: "时尚",
-      },
-      {
-        id: 9,
-        name: "美食",
-      },
-      {
-        id: 10,
-        name: "科技",
-      },
-      {
-        id: 11,
-        name: "文化",
-      },
-      {
-        id: 12,
-        name: "影视",
-      },
-      {
-        id: 13,
-        name: "健身",
-      }
+      { id: 1, name: "汽车" },
+      { id: 2, name: "摩托车" },
+      { id: 3, name: "改装" },
+      { id: 4, name: "旅游" },
+      { id: 5, name: "摄影" },
+      { id: 6, name: "音乐" },
+      { id: 7, name: "文学" },
+      { id: 8, name: "时尚" },
+      { id: 9, name: "美食" },
+      { id: 10, name: "科技" },
+      { id: 11, name: "文化" },
+      { id: 12, name: "影视" },
+      { id: 13, name: "健身" }
     ],
     isInterestOpen: false
   },

@@ -10,12 +10,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -50,6 +45,15 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+
+  /**
+   * 点击列表事件
+   */
+  wzList: function (e) {
+    wx.navigateTo({
+      url: '../list/list?menuid=' + e.currentTarget.dataset.menuid
     })
   }
 })

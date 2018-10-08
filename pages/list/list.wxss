@@ -80,6 +80,7 @@ page{
 }
 
 .active-user-tx{
+  display: block;
   overflow: hidden;
 }
 
@@ -94,6 +95,12 @@ page{
 
 .active-user-tx view:nth-child(3n){
   margin-right: 0;
+}
+
+.active-user-tx image{
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
 }
 
 .content-list{

@@ -1,14 +1,14 @@
 <!--pages/car/car.wxml-->
 <view class="container">
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='2'>
     车魂魅影
     <image src='../../image/right-btn.png'></image>
   </view>
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='3'>
     人车故事
     <image src='../../image/right-btn.png'></image>
   </view>
-  <view bindtap='wzList'>
+  <view bindtap='wzList' data-menuid='4'>
     自驾壮游
     <image src='../../image/right-btn.png'></image>
   </view>

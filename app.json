@@ -42,12 +42,6 @@
         "text": "摩托车"
       },
       {
-        "pagePath": "pages/activity/activity",
-        "iconPath": "image/icon-huodong.png",
-        "selectedIconPath": "image/icon-huodong-h.png",
-        "text": "活动"
-      },
-      {
         "pagePath": "pages/my/my",
         "iconPath": "image/icon-wode.png",
         "selectedIconPath": "image/icon-wode-h.png",
