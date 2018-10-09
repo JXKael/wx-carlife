@@ -10,7 +10,7 @@ function getList(that, menuid) {
   if (that.data.hasMore) {
     request.requestData("menu/" + menuid + "/" + that.data.page, "GET", {},
       function (res) {
-        console.log(res)
+        // console.log(res)
         var newPosts = res.data.posts
         if (newPosts.length == 0) {
           that.setData({

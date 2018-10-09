@@ -15,11 +15,11 @@ Page({
     template: 0,
   },
   onLoad: function (option) {
-    console.log(option)
+    // console.log(option)
     var that = this;
     request.requestData('post/show/' + option.postid, "GET", {},
       function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         var post = res.data.post
         for (var i = 0; i < post.content.length; ++i){
           if (post.content[i].image != null){

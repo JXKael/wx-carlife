@@ -47,7 +47,7 @@ Page({
 
 
   getUserInfo: function(e) {
-    console.log(e)
+    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -59,7 +59,7 @@ Page({
    * 点击列表事件
    */
   wzList: function(e) {
-    console.log(e)
+    // console.log(e)
     wx.navigateTo({
       url: '../list/list?menuid=' + e.currentTarget.dataset.menuid
     })

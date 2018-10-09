@@ -103,7 +103,7 @@ Page({
       },
       function (data) {
         // 获取验证码成功
-        console.log(data)
+        // console.log(data)
         wx.hideLoading()
         wx.showToast({
           title: "获取验证码成功"
@@ -111,7 +111,7 @@ Page({
       },
       function (data) {
         // 获取验证码失败
-        console.log(data)
+        // console.log(data)
         wx.hideLoading()
         wx.showToast({
           title: "获取验证码失败",
@@ -188,7 +188,7 @@ Page({
       },
       function (data) {
         // 登录成功
-        console.log(data.data.member)
+        // console.log(data.data.member)
         var userProfile = data.data.member
         wx.hideLoading()
         // 设置存储
@@ -236,7 +236,7 @@ Page({
       },
       function (data) {
         // 登录失败
-        console.log(data)
+        // console.log(data)
         wx.hideLoading()
         wx.showToast({
           title: "登录失败",

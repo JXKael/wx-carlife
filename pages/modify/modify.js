@@ -52,7 +52,7 @@ Page({
     var userProfile = wx.getStorage({
       key: "userProfile",
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         var interest = res.data.interest
         var text = ""
         for (var i = 0; i < interest.length; ++i) {
@@ -81,10 +81,10 @@ Page({
         })
       },
       fail: function (res) {
-        console.log("读取user profile失败")
+        // console.log("读取user profile失败")
       }
     })
-    console.log(this.data.interests)
+    // console.log(this.data.interests)
   },
 
   /**
@@ -126,14 +126,14 @@ Page({
    * 手机号
    */
   bindMobileChange: function (e) {
-    console.log("修改手机号")
+    // console.log("修改手机号")
   },
 
   /**
    * 昵称
    */
   onNicknameBlur: function (e) {
-    console.log("修改昵称")
+    // console.log("修改昵称")
     this.setData({
       nickname: e.detail.value
     })
@@ -143,7 +143,7 @@ Page({
    * 真实姓名
    */
   onNameBlur: function (e) {
-    console.log("修改真实姓名")
+    // console.log("修改真实姓名")
     this.setData({
       name: e.detail.value
     })
@@ -153,7 +153,7 @@ Page({
    * 个性签名
    */
   onSignBlur: function (e) {
-    console.log("修改个性签名")
+    // console.log("修改个性签名")
     this.setData({
       sign: e.detail.value
     })
@@ -163,8 +163,8 @@ Page({
    * 生日
    */
   bindBirthdayChange: function (e) {
-    console.log("修改生日")
-    console.log(e)
+    // console.log("修改生日")
+    // console.log(e)
     this.setData({
       birthday: e.detail.value
     })
@@ -174,8 +174,8 @@ Page({
    * 性别
    */
   bindGenderChange: function (e) {
-    console.log("修改性别")
-    console.log(e)
+    // console.log("修改性别")
+    // console.log(e)
     this.setData({
       sex: e.detail.value,
       sexTxt: this.data.genders[(e.detail.value)]
@@ -186,15 +186,15 @@ Page({
    * 兴趣
    */
   onTapInterest: function (e) {
-    console.log("修改兴趣")
+    // console.log("修改兴趣")
     this.setData({
       isInterestOpen: !this.data.isInterestOpen
     })
   },
 
   onInterestCheckBoxChange: function (e) {
-    console.log("选择兴趣")
-    console.log(e)
+    // console.log("选择兴趣")
+    // console.log(e)
     var text = ""
     var array = []
     for (var i = 0; i < this.data.interests.length; ++i){
@@ -218,7 +218,7 @@ Page({
    * 专业
    */
   bindProfessionChange: function (e) {
-    console.log("修改专业")
+    // console.log("修改专业")
     this.setData({
       professionId: e.detail.value,
       profession: this.data.professions[e.detail.value]
@@ -229,7 +229,7 @@ Page({
    * 微博链接
    */
   onWeiboLinkBlur: function (e) {
-    console.log("修改微博链接")
+    // console.log("修改微博链接")
     this.setData({
       weiboLink: e.detail.value
     })
@@ -239,7 +239,7 @@ Page({
    * 提交修改
    */
   onClickBtnCommit: function (e) {
-    console.log("提交修改")
+    // console.log("提交修改")
     wx.showLoading({
       title: "提交中",
     })
@@ -255,14 +255,14 @@ Page({
       profession: this.data.professionId, // 专业
       weiboLink: this.data.weiboLink, // 微博链接
     }
-    console.log(post_data)
+    // console.log(post_data)
     var that = this
     request.requestData("member/update", "POST",
       post_data,
       function (res) {
         // 修改成功
-        console.log("修改成功")
-        console.log(res.data)
+        // console.log("修改成功")
+        // console.log(res.data)
         wx.hideLoading()
         wx.showToast({
           title: "修改成功",
@@ -316,8 +316,8 @@ Page({
       },
       function (res) {
         // 修改失败
-        console.log("修改失败")
-        console.log(res)
+        // console.log("修改失败")
+        // console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: "修改失败",

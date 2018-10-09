@@ -122,8 +122,8 @@ Page({
    * 作品标题失焦事件函数
    */
   inputTitleFocusBlur: function (e) {
-    console.log("作品标题失去焦点")
-    console.log(e)
+    // console.log("作品标题失去焦点")
+    // console.log(e)
     var value = e.detail.value
     this.setData({
       title: value
@@ -134,8 +134,8 @@ Page({
    * 作品介绍失焦事件函数
    */
   taSummaryFocusBlur: function (e) {
-    console.log("作品介绍失去焦点")
-    console.log(e)
+    // console.log("作品介绍失去焦点")
+    // console.log(e)
     this.setData({
       summary: e.detail.value
     })
@@ -245,7 +245,7 @@ Page({
    * 点击添加封面
    */
   onTapChooseCoverImage: function (e) {
-    console.log("添加封面")
+    // console.log("添加封面")
     var that = this
     wx.chooseImage({
       count: 1,
@@ -266,8 +266,8 @@ Page({
    * 封面长按事件
    */
   onLongPressCover: function (e) {
-    console.log("长按封面")
-    console.log(e)
+    // console.log("长按封面")
+    // console.log(e)
     var that = this
     if (!this.data.hasCover) return
     var index = e.currentTarget.dataset.index
@@ -287,8 +287,8 @@ Page({
    * 元素长按事件函数，删除本元素
    */
   onLongPressElement: function (e) {
-    console.log("长按元素")
-    console.log(e)
+    // console.log("长按元素")
+    // console.log(e)
     var that = this
     var index = e.currentTarget.dataset.index
     wx.showModal({
@@ -323,8 +323,8 @@ Page({
    * 正文文字失焦事件函数
    */
   taParagraphFocusBlur: function (e) {
-    console.log("段落失去焦点")
-    console.log(e)
+    // console.log("段落失去焦点")
+    // console.log(e)
     var index = e.currentTarget.dataset.index
     var newContent = this.data.content
     if (newContent[index] != null){
@@ -341,8 +341,8 @@ Page({
    * 点击添加图片
    */
   onTapChooseImage: function (e) {
-    console.log("添加图片")
-    console.log(e)
+    // console.log("添加图片")
+    // console.log(e)
     var index = e.currentTarget.dataset.index
     var that = this
     wx.chooseImage({
@@ -368,8 +368,8 @@ Page({
    * 标注文字失焦事件函数
    */
   taLabelFocusBlur: function (e) {
-    console.log("标注失去焦点")
-    console.log(e)
+    // console.log("标注失去焦点")
+    // console.log(e)
     var index = e.currentTarget.dataset.index
     var newContent = this.data.content
     if (newContent[index] != null) {
@@ -384,8 +384,8 @@ Page({
    * 视频失焦事件函数
    */
   taVideoFocusBlur: function (e) {
-    console.log("视频失去焦点")
-    console.log(e)
+    // console.log("视频失去焦点")
+    // console.log(e)
     var index = e.currentTarget.dataset.index
     var newContent = this.data.content
     if (newContent[index] != null) {
@@ -400,8 +400,8 @@ Page({
    * 拍摄时间事件函数
    */
   bindDateChange: function (e) {
-    console.log("拍摄时间失去焦点")
-    console.log(e)
+    // console.log("拍摄时间失去焦点")
+    // console.log(e)
     this.setData({
       dates: e.detail.value
     })
@@ -411,8 +411,8 @@ Page({
    * 拍摄地点失去焦点事件函数
    */
   onLocationFocusBlur : function (e) {
-    console.log("拍摄地点失去焦点")
-    console.log(e)
+    // console.log("拍摄地点失去焦点")
+    // console.log(e)
     this.setData({
       location: e.detail.value
     })
@@ -422,8 +422,8 @@ Page({
    * 拍摄装备失去焦点事件函数
    */
   onEquipFocusBlur: function (e) {
-    console.log("拍摄地点失去焦点")
-    console.log(e)
+    // console.log("拍摄地点失去焦点")
+    // console.log(e)
     this.setData({
       equip: e.detail.value
     })
@@ -433,8 +433,8 @@ Page({
    * 添加水印
    */
   onWaterMarkCheckboxChange: function (e) {
-    console.log("添加水印")
-    console.log(e)
+    // console.log("添加水印")
+    // console.log(e)
     this.setData({
       hasWaterMark: e.detail.value
     })
@@ -444,8 +444,8 @@ Page({
    * 添加授权
    */
   onAuthCheckboxChange: function (e) {
-    console.log("添加授权")
-    console.log(e)
+    // console.log("添加授权")
+    // console.log(e)
     this.setData({
       hasAuth: e.detail.value
     })
@@ -455,7 +455,7 @@ Page({
    * 点击提交
    */
   onTapBtnCommit: function (e) {
-    console.log("提交")
+    // console.log("提交")
     // 检查内容是否符合规则
     if (this.data.title.length == 0){
       wx.showToast({
@@ -514,8 +514,8 @@ Page({
       filePath: that.data.imageCover,
       name: "file",
       success(res) {
-        console.log("上传封面成功")
-        console.log(res)
+        // console.log("上传封面成功")
+        // console.log(res)
         var lastIndex = res.data.lastIndexOf("/")
         res.data = res.data.substring(lastIndex + 1, res.data.length)
         that.setData({
@@ -526,8 +526,8 @@ Page({
         that.uploadImages()
       },
       fail(res) {
-        console.log("上传失败")
-        console.log(res)
+        // console.log("上传失败")
+        // console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: "上传封面失败",
@@ -552,7 +552,7 @@ Page({
     var imageData = this.data.content[index]
     if (imageData == null){
       wx.hideLoading()
-      console.log(imageURLs)
+      // console.log(imageURLs)
       var newContent = this.data.content
       for (var i = 0; i < this.data.elementNum; ++i) {
         if (newContent[i].ctype != 1 || !newContent[i].hasImage) {
@@ -575,14 +575,14 @@ Page({
       title: "上传图片" + imageCount + "/" + this.data.imageNum,
     })
     var that = this
-    console.log(imageData.imagePath)
+    // console.log(imageData.imagePath)
     wx.uploadFile({
       url: imageUploadURL,
       filePath: imageData.imagePath,
       name: "file",
       success(res) {
-        console.log("上传正文图片成功")
-        console.log(res)
+        // console.log("上传正文图片成功")
+        // console.log(res)
         var lastIndex = res.data.lastIndexOf("/")
         res.data = res.data.substring(lastIndex + 1, res.data.length)
         imageURLs.push(res.data)
@@ -590,8 +590,8 @@ Page({
         that.uploadImage(++index, imageURLs, ++imageCount)
       },
       fail(res) {
-        console.log("上传正文图片失败")
-        console.log(res)
+        // console.log("上传正文图片失败")
+        // console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: "上传图片失败",
@@ -632,14 +632,14 @@ Page({
       watermark: this.data.hasWaterMark ? 1 : 0, // 水印
       authorization: this.data.hasAuth ? 1 : 0, // 授权
     }
-    console.log("文章内容")
-    console.log(postData)
+    // console.log("文章内容")
+    // console.log(postData)
     request.requestData("post/add", "POST",
       postData,
       function (data) {
         // 发布成功
-        console.log("发布成功")
-        console.log(data)
+        // console.log("发布成功")
+        // console.log(data)
         wx.hideLoading()
         wx.showToast({
           title: "发布成功",
@@ -653,8 +653,8 @@ Page({
       },
       function (data) {
         // 发布失败
-        console.log("发布失败")
-        console.log(data)
+        // console.log("发布失败")
+        // console.log(data)
         wx.hideLoading()
         wx.showToast({
           title: data.data.message,
