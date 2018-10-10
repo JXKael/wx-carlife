@@ -92,6 +92,18 @@ page{
   padding: 30rpx;
 }
 
+.section text{
+  display: block;
+  font-size: 24rpx;
+  width: auto;
+  height: auto;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+  text-align: right;
+  color: #B3B3B3;
+  background-color: white;
+}
+
 .module-box{
   background: white;
   border-top: 2rpx solid #f7f7f7;

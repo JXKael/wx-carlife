@@ -485,13 +485,13 @@ Page({
       })
       return
     }
-    if (this.data.dates.length <= 0){
-      wx.showToast({
-        title: "请添加时间",
-        icon: "none"
-      })
-      return
-    }
+    // if (this.data.dates.length <= 0){
+    //   wx.showToast({
+    //     title: "请添加时间",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
     // 网络请求
     this.startCommit()
   },
