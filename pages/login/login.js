@@ -186,10 +186,20 @@ Page({
         mobile: this.data.phoneNumber,
         code: this.data.vCode
       },
-      function (data) {
+      function (res) {
+        // 访问成功
+        console.log(res)
+        if (res.data.error == -1){
+          // 登录失败
+          wx.hideLoading()
+          wx.showToast({
+            title: "登录失败",
+            icon: "none"
+          })
+          return
+        }
         // 登录成功
-        // console.log(data.data.member)
-        var userProfile = data.data.member
+        var userProfile = res.data.member
         wx.hideLoading()
         // 设置存储
         if (userProfile.birthday == null) {
@@ -234,9 +244,9 @@ Page({
           delta: 1
         })
       },
-      function (data) {
+      function (res) {
         // 登录失败
-        // console.log(data)
+        // console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: "登录失败",
