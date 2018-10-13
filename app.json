@@ -10,7 +10,8 @@
     "pages/userinfo/userinfo",
     "pages/car/car",
     "pages/motorcycle/motorcycle",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/webView/webView"
   ],
   "window": {
     "backgroundTextStyle": "light",

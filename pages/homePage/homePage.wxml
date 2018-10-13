@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
   <block wx:for="{{data.slides}}">
     <swiper-item>
-      <image src="http://netcarlife.com/photograph/crop/315,150/{{item.image}}" class="slide-image" mode="widthFix"/>
+      <image src="http://netcarlife.com/photograph/crop/315,150/{{item.image}}" class="slide-image" mode="widthFix" bindtap='waDetail' data-postid='{{item.id}}' />
       <text>{{item.name}}</text>
     </swiper-item>
   </block>
@@ -19,14 +19,14 @@
 </view>
 <view class='we-img'>
   <view class = ".we-img-item-single">
-    <image src='../../image/jies1.jpg' mode="widthFix"></image>
+    <image src='{{adSlides[0].image}}' mode="widthFix" bindtap='onAdTap' data-src='{{adSlides[0].url}}'></image>
   </view>
   <view class = "we-img-item-double">
     <view class = "we-img-item-double-left">
-      <image src='../../image/jies2.jpg' mode="widthFix"></image>
+      <image src='{{adSlides[1].image}}' mode="widthFix" bindtap='onAdTap' data-src='{{adSlides[1].url}}'></image>
     </view>
     <view class = "we-img-item-double-right">
-      <image src='../../image/jies3.jpg' mode="widthFix"></image>
+      <image src='{{adSlides[2].image}}' mode="widthFix" bindtap='onAdTap' data-src='{{adSlides[2].url}}'></image>
     </view>
   </view>
 </view>
