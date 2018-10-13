@@ -23,7 +23,8 @@ function list(that) {
         that.data.Res.push(data.data.posts[i]);
       }
       that.setData({
-        dataList: that.data.Res
+        dataList: that.data.Res,
+        adSlides: data.data.adSlides
       })
     }, null, null)
   }
@@ -36,18 +37,28 @@ Page({
     interval: 3000,
     duration: 1000,
     Res:[],
-    more: false
+    more: false,
+    adSlides: [
+      { image: "../../image/jies1.jpg", url: "" },
+      { image: "../../image/jies2.jpg", url: "" },
+      { image: "../../image/jies3.jpg", url: "" }
+    ]
   },
   onLoad: function () {
     var that = this;
     request.requestData('index/1', "GET", {}, function (data) {
+      console.log(data)
       for (var i = 0; i < data.data.posts.length; i++) {
         data.data.posts[i].createTime = util.getDateDiff(data.data.posts[i].createTime);
         that.data.Res.push(data.data.posts[i]);
       }
+      for (var i = 0; i < data.data.adSlides.length; ++i) {
+        data.data.adSlides[i].image = "http://netcarlife.com/photograph/crop/144,96/" + data.data.adSlides[i].image
+      }
       that.setData({
         dataList: that.data.Res,
-        data: data.data
+        data: data.data,
+        adSlides: data.data.adSlides
       })
     }, null, null)
   },
@@ -59,13 +70,24 @@ Page({
   },
   release:function(e) {
     wx.navigateTo({
-      url: '../release/release'
+      url: "../release/release"
     })
   },
   waDetail:function(e){
     // console.log(e.currentTarget.dataset.postid)
     wx.navigateTo({
-      url: '../worksDetails/worksDetails?postid=' + e.currentTarget.dataset.postid
+      url: "../worksDetails/worksDetails?postid=" + e.currentTarget.dataset.postid
+    })
+  },
+
+  /**
+   * 广告图片点击事件
+   */
+  onAdTap: function (e) {
+    // console.log(e)
+    var src = e.target.dataset.src
+    wx.navigateTo({
+      url: "../webView/webView?src=" + src,
     })
   }
 })
