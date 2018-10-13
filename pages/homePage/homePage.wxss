@@ -84,7 +84,7 @@ swiper-item text{
 }
 
 .we-img{
-  display: flex;
+  display: none; /* 开启改成flex*/
   flex-direction: column;
   overflow: hidden;
 }

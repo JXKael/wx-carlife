@@ -2,7 +2,7 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
   <block wx:for="{{data.slides}}">
     <swiper-item>
-      <image src="http://netcarlife.com/photograph/crop/315,150/{{item.image}}" class="slide-image" mode="widthFix"/>
+      <image src="http://netcarlife.com/photograph/crop/315,150/{{item.image}}" class="slide-image" mode="widthFix" bindtap='waDetail' data-postid='{{item.id}}' />
       <text>{{item.name}}</text>
     </swiper-item>
   </block>

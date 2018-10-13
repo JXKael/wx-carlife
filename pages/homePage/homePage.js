@@ -37,8 +37,8 @@ Page({
   data: {
     indicatorDots: false,
     autoplay: true,
-    interval: 3000,
-    duration: 1000,
+    interval: 4000,
+    duration: 800,
     Res:[],
     more: false,
     adSlides: [
@@ -50,7 +50,6 @@ Page({
   onLoad: function () {
     var that = this;
     request.requestData('index/1', "GET", {}, function (data) {
-      console.log(data)
       for (var i = 0; i < data.data.posts.length; i++) {
         data.data.posts[i].createTime = util.getDateDiff(data.data.posts[i].createTime);
         that.data.Res.push(data.data.posts[i]);
