@@ -22,6 +22,9 @@ function list(that) {
         data.data.posts[i].createTime = util.getDateDiff(data.data.posts[i].createTime);
         that.data.Res.push(data.data.posts[i]);
       }
+      for (var i = 0; i < data.data.adSlides.length; ++i) {
+        data.data.adSlides[i].image = "http://netcarlife.com/photograph/crop/144,96/" + data.data.adSlides[i].image
+      }
       that.setData({
         dataList: that.data.Res,
         adSlides: data.data.adSlides
