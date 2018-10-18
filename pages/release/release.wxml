@@ -43,8 +43,8 @@
     <block wx:for = "{{content}}" wx:for-index = "idx" wx:for-item = "item" wx:key = "unique">
       <!-- 文字 -->
       <block wx:if = "{{item.ctype == 0}}">
-        <view class = "section" data-index = "{{idx}}" bindlongpress = "onLongPressElement">
-          <textarea placeholder = "请输入文字" placeholder-style = "color:#CCCCCC;" value = "{{item.content}}" bindblur = "taParagraphFocusBlur"/>
+        <view class = "section" data-index="{{idx}}" bindlongpress = "onLongPressElement">
+          <textarea placeholder = "请输入文字" placeholder-style = "color:#CCCCCC;" value = "{{item.content}}" bindblur = "taParagraphFocusBlur" data-index="{{idx}}"/>
           <text>长按此处删除模块</text>
         </view>
       </block>
