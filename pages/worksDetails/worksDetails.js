@@ -37,9 +37,20 @@ Page({
           createTime: new Date(post.createTime * 1000).toLocaleString('chinese', { hour12: false }),
           content: post.content,
           praiseCount: post.praiseCount,
-          template: post.template
+          template: post.template,
+          thumb: "http://netcarlife.com/photograph/fill/1000,750/" + post.thumb
         })
       }, null, null
     )
-  }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: this.data.title,
+      imageUrl: this.data.thumb
+    }
+  },
 })
