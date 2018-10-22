@@ -19,17 +19,21 @@ Page({
     var that = this;
     request.requestData('post/show/' + option.postid, "GET", {},
       function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         var post = res.data.post
-        for (var i = 0; i < post.content.length; ++i){
-          if (post.content[i].image != null){
-            post.content[i].image = "http://netcarlife.com/photograph/fill/1000,750/"
-              + post.content[i].image.substring(0, 2)
-              + "/"
-              + post.content[i].image.substring(2, 4)
-              + "/"
-              + post.content[i].image
-          }          
+        if (post.template == 1) {
+          for (var i = 0; i < post.content.length; ++i) {
+            if (post.content[i].image != null) {
+              post.content[i].image = "http://netcarlife.com/photograph/fill/1000,750/"
+                + post.content[i].image.substring(0, 2)
+                + "/"
+                + post.content[i].image.substring(2, 4)
+                + "/"
+                + post.content[i].image
+            }
+          }
+        }else if (post.template == 2) {
+          post.content = post.content.replace(/\<img src/g, "<img style='width:100%' src")
         }
         that.setData({
           title: post.title,
