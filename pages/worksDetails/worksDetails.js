@@ -33,7 +33,7 @@ Page({
             }
           }
         }else if (post.template == 2) {
-          post.content = post.content.replace(/\<img src/g, "<img style='width:100%' src")
+          post.content = post.content.replace(/\<img/g, "<img style='width:100%'")
         }
         that.setData({
           title: post.title,
