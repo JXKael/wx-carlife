@@ -346,19 +346,36 @@ Page({
     var index = e.currentTarget.dataset.index
     var that = this
     wx.chooseImage({
-      count: 1,
+      count: 3,
       sizeType: ["original", "compressed"],
       sourceType: ["album"],
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
+        // console.log(res)
         const tempFilePaths = res.tempFilePaths
         var newContent = that.data.content
-        var newImageNum = that.data.imageNum +1
+        var newImageNum = that.data.imageNum + tempFilePaths.length
+        var newElementNum = that.data.elementNum
         newContent[index].hasImage = true
         newContent[index].imagePath = tempFilePaths[0]
+        if (tempFilePaths.length > 1) {
+          const ctype = "1"
+          for (var i = 1; i < tempFilePaths.length; ++i) {
+            newContent.push({
+              uniqueKey: "unique" + "_" + ctype + "_" + newElementNum,
+              ctype: ctype,
+              index: newElementNum,
+              hasImage: true,
+              imagePath: tempFilePaths[i],
+              imageURL: ""
+            });
+            ++newElementNum
+          }
+        }
         that.setData({
           content: newContent,
-          imageNum: newImageNum
+          imageNum: newImageNum,
+          elementNum: newElementNum
         })
       }
     })
